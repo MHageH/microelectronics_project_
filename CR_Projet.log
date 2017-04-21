@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.12)  14 APR 2017 17:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.12)  21 APR 2017 16:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -376,12 +376,12 @@ LaTeX Info: Redefining \nameref on input line 60.
 \openout3 = `CR_Projet.out'.
 
 \c@lstlisting=\count125
-LaTeX Font Info:    Try loading font information for U+msa on input line 65.
+LaTeX Font Info:    Try loading font information for U+msa on input line 66.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 65.
+LaTeX Font Info:    Try loading font information for U+msb on input line 66.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -393,9 +393,86 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [2
 
-] [3
+]
+<comparateur_schema.jpg, id=158, 1275.76625pt x 717.68124pt>
+File: comparateur_schema.jpg Graphic file (type jpg)
 
-] [4]
+<use comparateur_schema.jpg>
+Package pdftex.def Info: comparateur_schema.jpg used on input line 126.
+(pdftex.def)             Requested size: 484.79622pt x 272.7217pt.
+
+Overfull \hbox (15.32576pt too wide) in paragraph at lines 126--127
+ [] 
+ []
+
+[3
+
+]
+Missing character: There is no Â in font cmr10!
+Missing character: There is no   in font cmr10!
+ [4 <./comparateur_schema.jpg>]
+Missing character: There is no Â in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no µ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no µ in font cmr10!
+ [5]
+Missing character: There is no Â in font cmr10!
+Missing character: There is no µ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no µ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no µ in font cmr10!
+ [6]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no Â in font cmbx10!
+Missing character: There is no   in font cmbx10!
+ [7
+
+]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
@@ -405,34 +482,59 @@ File: lstlang2.sty 2014/09/06 1.5e listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2014/09/06 1.5e listings language file
 )
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 148.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 271.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 148.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 149.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 271.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 272.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 149.
- [5
-
-] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 198.
- [7
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 272.
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+ [8
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 198.
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ¦ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no   in font cmr10!
+ [9] [10] [11
 
-(./CR_Projet.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 198.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 198.
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 370.
+
+[12
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 370.
+ (./CR_Projet.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 370.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 370.
 
 
 Package rerunfilecheck Warning: File `CR_Projet.out' has changed.
@@ -440,39 +542,38 @@ Package rerunfilecheck Warning: File `CR_Projet.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `CR_Projet.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  6B8EC3A64BEA1845741ED6BBAF8DD22E;1725.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 198.
+(rerunfilecheck)             Before: 1FA7D74152E083469B2788824D7860D7;2040
+(rerunfilecheck)             After:  89A4A5BE56CCC27A62770D7E01BFCEFF;2104.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 370.
  ) 
 Here is how much of TeX's memory you used:
- 8135 strings out of 495020
- 115910 string characters out of 6181324
+ 8186 strings out of 495020
+ 116636 string characters out of 6181324
  335540 words of memory out of 5000000
- 11169 multiletter control sequences out of 15000+600000
+ 11205 multiletter control sequences out of 15000+600000
  14671 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 29i,6n,43p,382b,1434s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,7n,43p,242b,1434s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on CR_Projet.pdf (7 pages, 180121 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on CR_Projet.pdf (12 pages, 297186 bytes).
 PDF statistics:
- 178 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
- 72 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 333 PDF objects out of 1000 (max. 8388607)
+ 298 compressed objects within 3 object streams
+ 85 named destinations out of 1000 (max. 500000)
+ 230 words of extra memory for PDF output out of 10000 (max. 10000000)
 

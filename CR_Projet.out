@@ -16,7 +16,14 @@
 \BOOKMARK [2][-]{subsection.6.1}{Programmation et synth\350se automatique du circuit}{section.6}% 16
 \BOOKMARK [3][-]{subsubsection.6.1.1}{Fonctionnement}{subsection.6.1}% 17
 \BOOKMARK [3][-]{subsubsection.6.1.2}{Synth\350se}{subsection.6.1}% 18
-\BOOKMARK [1][-]{section.7}{Layout}{}% 19
+\BOOKMARK [1][-]{section.7}{Sch\351ma Global}{}% 19
 \BOOKMARK [2][-]{subsection.7.1}{Mise en place des \351l\351ments du montage final}{section.7}% 20
-\BOOKMARK [2][-]{subsection.7.2}{Simulation}{section.7}% 21
-\BOOKMARK [1][-]{subsection.7.2}{R\351f\351rences}{}% 22
+\BOOKMARK [2][-]{subsection.7.2}{Simulations}{section.7}% 21
+\BOOKMARK [2][-]{subsection.7.3}{Etage de d\351codage}{section.7}% 22
+\BOOKMARK [1][-]{section.8}{Layout}{}% 23
+\BOOKMARK [2][-]{subsection.8.1}{Mise en oeuvre}{section.8}% 24
+\BOOKMARK [2][-]{subsection.8.2}{Simulation}{section.8}% 25
+\BOOKMARK [1][-]{section.9}{Conclusion}{}% 26
+\BOOKMARK [1][-]{section.10}{Glossaire}{}% 27
+\BOOKMARK [1][-]{section.11}{Annexes}{}% 28
+\BOOKMARK [1][-]{section.11}{R\351f\351rences}{}% 29

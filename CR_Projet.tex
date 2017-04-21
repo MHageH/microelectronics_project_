@@ -61,7 +61,10 @@
 
 \title{\textbf{Projet de Conception en Micro\'electronique Analogique} \\ R\'ealisation d'un CAN FLASH 6 bits}
 \author{Mohamed Hage Hassan \\ Ferdinand Goumis}
+\date{20 Avril 2017}
 \maketitle
+
+\renewcommand{\abstractname}{Abstrait}
 
 \begin{abstract}
 
@@ -94,9 +97,11 @@ Le projet n\'ecessite d'avoir :
 \end{itemize}
 
 \section{Mise en place de l'\'echantillonneur-bloqueur}
-Pour qu'on puisse convertir le signal, on doit impl\'ementer une \'etape d'\'echantillonnage, avec un fonctionnement \`a haute fr\'equence, avant la r\'ealisation de l'\'etape de comparaison, qui consiste \`a comparer les diff\'erents niveaux obtenus par \'echantillonnage avec l'amplitude du signal initial, modifi\'ee par le pont de diviseurs de tensions.
+Pour qu'on puisse convertir le signal, on doit impl\'ementer une \'etape d'\'echantillonnage, avec un fonctionnement \`a haute fr\'equence,
+ avant la r\'ealisation de l'\'etape de comparaison, qui consiste \`a comparer les diff\'erents niveaux obtenus par \'echantillonnage avec l'amplitude du signal initial,
+  modifi\'ee par le pont de diviseurs de tensions.
 
-On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'es commut\'ees
+On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'es commut\'ees:
 
 \subsection{Principe de fonctionnement}
 
@@ -112,17 +117,135 @@ On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'es co
 \subsection{Simulation et optimisation}
 
 \section{Mise en oeuvre des comparateurs synchronis\'es par horloge}
-
-Le comparateur \`a impl\'ementer est illustr\'e par la figure X.
+\subsection{Principe de fonctionnement}
+L'\'etape suivante est la cr\'eation de 63 comparateurs et seuils afin d'au mieux \'evaluer le niveau de
+notre signal \`a chaque front sur un cycle d'horloge commune \`a tous les blocs.
 
 \begin{figure}[!htb]
-\centering
-%\includegraphics[scale=0.35]{comparateur_.jpg}
-\caption{Comparateurs synchronis\'es par horloge avec une paire crois\'ee}
+\begin{center}
+  \includegraphics[scale=0.38]{comparateur_schema.jpg}
+  \caption{Architecture des comparateurs synchronis\'es par horloge avec une paire crois\'ee}
+\end{center}
 \end{figure}
 
-\subsection{Principe de fonctionnement}
+La structure utilis\'ee pour ce comparateur et bri\`evement d\'ecrite dans le sujet, et illustr\'ee par
+la figure X, utilise un courant provenant d'un miroir de courant (partie gauche de la structure).
+La propri\'et\'e comparatrice est effectu\'ee par la paire diff\'erentielle $N_1$/$N_2$ Ensuite, la partie de droite
+($P_1$,$P_2$ et $N_3$,$N_4$,$N_5$,$N_6$) fait basculer le comparateur soit en satur\'e (sortie de 3.3 V)
+ou \`a la masse \`a travers le transistor $N_6$ qui est alors passant.
+
 \subsection{Partie Th\'eorique}
+Afin d'au mieux dimensionner ce comparateur, nous avons effectu\'e les hypoth\`eses et calculs suivants :
+
+Les calculs qui suivent sont valables dans la phase de comparaison (niveau d'horloge bas) :
+
+Pour $V_{EP}-V_{EN}$ tr\`es diff\'erent de $0$ (cas d'une entr\'ee repr\'esentant le signal et l'autre un seuil),
+le courant $I_0$ capable de charger ou d\'echarger la capacit\'e aux nœuds $S_N$ ou $S_P$ en $\frac{1}{4}$ de
+p\'eriode d'horloge sur une variation de $V_{DD}$ vaut :
+
+\[
+I_0 = C \frac{V_{DD}}{t} = 26 \mu A
+\]
+
+si l’on consid\`ere un temps de 12.5 ns = $\frac{1}{4} \times T_{horloge}$ \`a 20 MHz.
+
+A l’\'equilibre ($V_{EN} = V_{EP}$), pour avoir une tension de mode commun en sortie
+$V_{SN} = V_{SP} = \frac{V_{DD}}{2}$ , le rapport $\frac{W}{L}$ de $P_{1,2}$ vaut :
+
+\[
+  \bigg(\frac{W}{L}\bigg)_{P1,2} = \frac{I_D}{K_P (V_{dd}/2 - |V_{TP}|)^{2}} = 1.229
+\]
+
+Afin que les transistors $N_{1,2}$ pr\'esentent une capacit\'e $C_{GS}$ en entr\'ee compatible
+ou inf\'erieure \`a celle prise en compte pour fixer $C_s$ dans le calcul de l’\'echantillonneur
+bloqueur, la relation :
+
+\[
+  C_{GS} = \frac{2}{3} C_{ox} W_{N_{1,2}} L \leq C_{comp}
+\]
+
+Ce qui implique que $W_{N_{1,2}} \leq 68 \mu m$ puisque :
+
+\[
+  C_S = C_{ech} + 63 \times C_{comp}
+\]
+et que :
+\[
+  C_{comp} = \frac{5}{63} \phantom{2} pF = 79 fF
+\]
+
+D\'eterminons maintenant les tailles des transistors servant \`a polariser la paire N1/N2 :
+
+Si l’on remplace $N_{9}$ par un g\'en\'erateur de courant de valeur $I_{0}$, une simulation DC
+sous Cadence donne une valeur de tension au noeud A : $V_A = 0.75 V$.
+
+Afin que la grille du transistor $N_9$ soit polaris\'e avec la condition $V_{GS}-V_{tn}=V_{DS} - 0,2V$
+ (0,2V au-dessus de la limite de zone active), nous en d\'eduisons la tension au noeud B : $V_B = 1.12 V$
+
+Puis, le calcul de $\frac{W}{L}$ de $N_9$ vient avec :
+\[
+  I_d = K_n \frac{W}{L} (V_{gs} - V_{tn})^2 \bigg( 1 + \frac{K_{en}}{L} V_{ds}\bigg)
+\]
+
+Le transistor est au-dessus de la LZA :
+
+\[
+\bigg(\frac{W}{L} \bigg)_{N_9} = \frac {26µA}{55µA . (V_B - V_T)^2 ( 1+ (0.03/0.35) V_A)}
+\]
+\[
+\bigg(\frac{W}{L} \bigg)_{N_9} = 1.46
+\]
+
+Nous faisons de m\^eme afin de calculer les dimensions du transistor $N_7$ avec la condition
+$I_{ref} =\frac{I_0}{2}$
+
+Pour calculer celui de N7, m\^eme formule sauf que :
+\[
+  \bigg(\frac{W}{L} \bigg)_{N_7} = \frac {\frac{26}{2}µA  }{55µA . (V_B - V_T)^2 ( 1+ (0.03/0.35) V_B)}
+\]
+\[
+\bigg(\frac{W}{L} \bigg)_{N_7} = 0.72
+\]
+
+On prendra pour $N_{10}$ un $W = 5 \mu m$.
+
+Le calcul des dimensions du transistor $N_8$ s’effectue en consid\'erant qu’il peut charger ou d\'echarger
+la capacit\'e estim\'ee par simulation au noeud B en $\frac{1}{4}$ de p\'eriode d’horloge.
+
+\[
+I_{N_8} = \frac {V_B C_B}{\frac{1}{4} T_H} = 2 µA
+\]
+
+\textbf{\textcolor{red}{Mettre les simulations}}
+
+\clearpage
+
+Les calculs qui suivent sont d\'esormais valables pour la phase de m\'emorisation (niveau d’horloge haut) :
+
+Afin que la chute de tension dans le transistor $N_6$  \`a l’\'etat ON soit de l’ordre de $0,5 V$ lorsque $H=1$
+pour un courant $I_{N_6}= I_0$, il vient :
+\[
+  \bigg(\frac{W}{L} \bigg)_{N_6} = 0.19
+\]
+
+car la chute de tension \`a travers la r\'esistance ON du transistor vaut $R_{ON} \times I_0 = 0.5V$
+
+Pour une tension de mode commun en sortie $V_{SP}=V_{SN} = \frac{V_{dd}}{2}$,
+
+\[
+  \frac{I_0}{2} = K_n \frac{W}{L}(1.65-0.5 - V_{tn})^2
+\]
+\[
+  \bigg(\frac{W}{L} \bigg)_{N_{4,5}} = 0.70
+\]
+
+Finalement, les simulations pr\'esentent un comparateur qui est approximatif : la sortie en mode
+commun n’est jamais r\'eellement soit \`a 0 ou \`a 3.3 V. En effet, le z\'ero logique se situe autour de 1.65 V
+et le 1 logique varie entre 2.5 et 3 V.
+
+Nous avons donc rajout\'e des inverseurs et un \textbf{\textcolor{red}{LATCH??} } en sortie afin de m\'emoriser
+un 0 ou un 1 logique.
+
 \subsubsection{Imp\'edance diff\'erentielle n\'egative et expression du Gain}
 \subsubsection{D\'etermination du courant et dimensionnements}
 \subsection{Simulations/Optimisations}
@@ -179,9 +302,52 @@ endmodule
 \subsubsection{Fonctionnement}
 \subsubsection{Synth\`ese}
 
-\section{Layout}
+\section{Sch\'ema Global}
 \subsection{Mise en place des \'el\'ements du montage final}
+La mise en oeuvre du sch\'ema final se fait par le placement de l’\'echantillonneur bloqueur
+ainsi que les 63 comparateurs et le pont de r\'esistance pour la cr\'eation des seuils.
+
+En soi, le sch\'ema est celui de la figure X :
+
+\begin{center}
+\textbf{\textcolor{red}{Sch\'ema du l'\'echantillonneur-Bloqueur + CAN-FLASH \`a faire}}.\\
+\end{center}
+Lors de cette \'etape, nous avons utilis\'e un bloc ``Comparateur + r\'esistance'' que nous avons boucl\'e
+sur lui-m\^eme 62 fois dans le but d’\'eviter le sch\'ema \`a rallonge (avec 63 bo\^ites diff\'erentes…).
+L’entr\'ee du premier bloc de comparaison (comparateur et seuil gr\^ace \`a la r\'esistance) prend en compte
+le signal en sortie de l’\'echantillonneur bloqueur ainsi que le niveau de r\'ef\'erence le plus haut.
+Le second \'etage de comparaison a pour entr\'ee la sortie de premier \'etage ainsi que le signal \'echantillonn\'e.
+Cet \'etage compare donc le signal \'echantillonn\'e et le seuil num\'ero 2 (deux r\'esistances \'egales en s\'erie).
+
+Le dernier \'etage de comparaison utilise toujours le m\^eme signal \'echantillonn\'e ainsi que le seuil 64 form\'e
+de 64 r\'esistances en s\'erie.
+
+\subsection{Simulations}
+
+La simulation globale de cet \'etage est tr\`es int\'eressante. En effet, les courbes pr\'esentent des valeurs de
+seuils tr\`es diff\'erentes de celles \textcolor{red}{pressenties} par le calcul (niveaux nets cr\'es par des r\'esistances en s\'erie).
+En fait, les entr\'ees des comparateurs sont des gros transistors NMOS. Par cons\'equent, leurs capacit\'es d’entr\'ee
+sont tr\`es importantes ; une fois reli\'ees \`a des r\'esistances (pont de r\'esistances), des effets de filtrages
+apparaissent et d\'egradent les niveaux de seuils.
+
+Les filtres ont en moyenne une fr\'equence de coupure de $\frac{1}{2 \pi R C}$ avec $C  = 90 \phantom{2} fF.$
+Pour pallier ce ph\'enom\`ene, nous avons plac\'e un suiveur parfait (vcvs) dans la bo\^ite de comparaison pour
+`` purifier '' les niveaux de seuils.
+
+\subsection{Etage de d\'ecodage}
+
+Mettre une bascule \`a la fin du comparateur pour bien synchro avec le d\'ecodeur.
+
+\section{Layout}
+\subsection{Mise en oeuvre}
 \subsection{Simulation}
+
+\clearpage
+
+\section{Conclusion}
+
+\section{Glossaire}
+\section{Annexes}
 
 \clearpage
 
@@ -191,6 +357,12 @@ endmodule
 \bibitem{Razavi}
 \textit{Design of Analog CMOS Integrated Circuits}
 \\\texttt{Behzad Razavi, McGraw-Hill Higher Education }
+
+\bibitem{Razavi Data-Conversion}
+\textit{AnalogtoDigital Converter Architectures}
+\textit{in Principles of Data Conversion System Design}\\
+Behzad Razavi, Wiley-IEEE Press, 1995, pp.96-152. \textbf{doi: 10.1109/9780470545638.ch6}
+
 
 \end{thebibliography}
 
