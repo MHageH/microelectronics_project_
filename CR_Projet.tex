@@ -48,6 +48,7 @@
 %
 
 \renewcommand{\contentsname}{Table des mati\`eres}
+\renewcommand\refname{R\'ef\'erences}
 
 \topmargin0.0cm
 \headheight0.0cm
@@ -60,15 +61,32 @@
 \begin{document}
 
 \title{\textbf{Projet de Conception en Micro\'electronique Analogique} \\ R\'ealisation d'un CAN FLASH 6 bits}
-\author{Mohamed Hage Hassan \\ Ferdinand Goumis}
+\author{Ferdinand Goumis \\ Mohamed Hage Hassan \medskip\\\medskip \textbf{Encadrants} \medskip \\ Fatah Ellah Rarbi \\ Daniel Dzahini \\ Florent Cilici \\ Laurent Aubard}
 \date{20 Avril 2017}
 \maketitle
+\thispagestyle{empty}
 
 \renewcommand{\abstractname}{Abstrait}
 
 \begin{abstract}
+Quisque hendrerit finibus lacus pulvinar semper.
+Donec rutrum lacinia tempus. Aenean ligula sapien, euismod vel arcu sit amet,
+molestie sollicitudin nisl. Pellentesque habitant morbi tristique senectus et netus et
+malesuada fames ac turpis egestas. Nullam ac ornare ante, efficitur rhoncus justo.
+Sed tristique lobortis nisl a gravida. Etiam id purus ut enim sagittis auctor id ac quam.
+Fusce vulputate nisi rutrum, aliquam neque et, auctor risus. Quisque commodo molestie felis,
+sed egestas sem. Sed euismod, turpis id dignissim malesuada, elit nulla auctor elit, nec hendrerit
+ipsum odio quis ex. Sed sollicitudin fringilla purus, et dignissim risus auctor eget. Etiam bibendum,
+nisi at posuere mattis, dui risus hendrerit sapien, vitae feugiat libero magna sollicitudin leo.
+
+\begin{center}
+  \textbf{\textcolor{red}{\'Elimine le lorem Ipsum apr\`es.}}
+\end{center}
 
 \end{abstract}
+
+\vskip 7cm
+\begin{center} \textbf{Institut Polytechnique de Grenoble} \end{center}
 
 \clearpage
 
@@ -147,9 +165,9 @@ p\'eriode d'horloge sur une variation de $V_{DD}$ vaut :
 I_0 = C \frac{V_{DD}}{t} = 26 \mu A
 \]
 
-si l’on consid\`ere un temps de 12.5 ns = $\frac{1}{4} \times T_{horloge}$ \`a 20 MHz.
+si l'on consid\`ere un temps de 12.5 ns = $\frac{1}{4} \times T_{horloge}$ \`a 20 MHz.
 
-A l’\'equilibre ($V_{EN} = V_{EP}$), pour avoir une tension de mode commun en sortie
+A l'\'equilibre ($V_{EN} = V_{EP}$), pour avoir une tension de mode commun en sortie
 $V_{SN} = V_{SP} = \frac{V_{DD}}{2}$ , le rapport $\frac{W}{L}$ de $P_{1,2}$ vaut :
 
 \[
@@ -157,7 +175,7 @@ $V_{SN} = V_{SP} = \frac{V_{DD}}{2}$ , le rapport $\frac{W}{L}$ de $P_{1,2}$ vau
 \]
 
 Afin que les transistors $N_{1,2}$ pr\'esentent une capacit\'e $C_{GS}$ en entr\'ee compatible
-ou inf\'erieure \`a celle prise en compte pour fixer $C_s$ dans le calcul de l’\'echantillonneur
+ou inf\'erieure \`a celle prise en compte pour fixer $C_s$ dans le calcul de l'\'echantillonneur
 bloqueur, la relation :
 
 \[
@@ -176,7 +194,7 @@ et que :
 
 D\'eterminons maintenant les tailles des transistors servant \`a polariser la paire N1/N2 :
 
-Si l’on remplace $N_{9}$ par un g\'en\'erateur de courant de valeur $I_{0}$, une simulation DC
+Si l'on remplace $N_{9}$ par un g\'en\'erateur de courant de valeur $I_{0}$, une simulation DC
 sous Cadence donne une valeur de tension au noeud A : $V_A = 0.75 V$.
 
 Afin que la grille du transistor $N_9$ soit polaris\'e avec la condition $V_{GS}-V_{tn}=V_{DS} - 0,2V$
@@ -209,8 +227,8 @@ Pour calculer celui de N7, m\^eme formule sauf que :
 
 On prendra pour $N_{10}$ un $W = 5 \mu m$.
 
-Le calcul des dimensions du transistor $N_8$ s’effectue en consid\'erant qu’il peut charger ou d\'echarger
-la capacit\'e estim\'ee par simulation au noeud B en $\frac{1}{4}$ de p\'eriode d’horloge.
+Le calcul des dimensions du transistor $N_8$ s'effectue en consid\'erant qu'il peut charger ou d\'echarger
+la capacit\'e estim\'ee par simulation au noeud B en $\frac{1}{4}$ de p\'eriode d'horloge.
 
 \[
 I_{N_8} = \frac {V_B C_B}{\frac{1}{4} T_H} = 2 µA
@@ -220,9 +238,9 @@ I_{N_8} = \frac {V_B C_B}{\frac{1}{4} T_H} = 2 µA
 
 \clearpage
 
-Les calculs qui suivent sont d\'esormais valables pour la phase de m\'emorisation (niveau d’horloge haut) :
+Les calculs qui suivent sont d\'esormais valables pour la phase de m\'emorisation (niveau d'horloge haut) :
 
-Afin que la chute de tension dans le transistor $N_6$  \`a l’\'etat ON soit de l’ordre de $0,5 V$ lorsque $H=1$
+Afin que la chute de tension dans le transistor $N_6$  \`a l'\'etat ON soit de l'ordre de $0,5 V$ lorsque $H=1$
 pour un courant $I_{N_6}= I_0$, il vient :
 \[
   \bigg(\frac{W}{L} \bigg)_{N_6} = 0.19
@@ -240,7 +258,7 @@ Pour une tension de mode commun en sortie $V_{SP}=V_{SN} = \frac{V_{dd}}{2}$,
 \]
 
 Finalement, les simulations pr\'esentent un comparateur qui est approximatif : la sortie en mode
-commun n’est jamais r\'eellement soit \`a 0 ou \`a 3.3 V. En effet, le z\'ero logique se situe autour de 1.65 V
+commun n'est jamais r\'eellement soit \`a 0 ou \`a 3.3 V. En effet, le z\'ero logique se situe autour de 1.65 V
 et le 1 logique varie entre 2.5 et 3 V.
 
 Nous avons donc rajout\'e des inverseurs et un \textbf{\textcolor{red}{LATCH??} } en sortie afin de m\'emoriser
@@ -254,7 +272,7 @@ un 0 ou un 1 logique.
 
 \section{R\'ealisation du d\'ecodeur en VHDL}
 \subsection{Programmation et synth\`ese automatique du circuit}
-On utilise un code existant en Verilog, fait par ``Zbigniew	Jaworski'', universit\'e de Warsaw.
+On utilise un code existant en Verilog\cite{Thermometer}
 Ce code permet de .. $+$ \textbf{\textcolor{red}{explication}}
 
 \begin{lstlisting}[language=Verilog]
@@ -304,7 +322,7 @@ endmodule
 
 \section{Sch\'ema Global}
 \subsection{Mise en place des \'el\'ements du montage final}
-La mise en oeuvre du sch\'ema final se fait par le placement de l’\'echantillonneur bloqueur
+La mise en oeuvre du sch\'ema final se fait par le placement de l'\'echantillonneur bloqueur
 ainsi que les 63 comparateurs et le pont de r\'esistance pour la cr\'eation des seuils.
 
 En soi, le sch\'ema est celui de la figure X :
@@ -313,9 +331,9 @@ En soi, le sch\'ema est celui de la figure X :
 \textbf{\textcolor{red}{Sch\'ema du l'\'echantillonneur-Bloqueur + CAN-FLASH \`a faire}}.\\
 \end{center}
 Lors de cette \'etape, nous avons utilis\'e un bloc ``Comparateur + r\'esistance'' que nous avons boucl\'e
-sur lui-m\^eme 62 fois dans le but d’\'eviter le sch\'ema \`a rallonge (avec 63 bo\^ites diff\'erentes…).
-L’entr\'ee du premier bloc de comparaison (comparateur et seuil gr\^ace \`a la r\'esistance) prend en compte
-le signal en sortie de l’\'echantillonneur bloqueur ainsi que le niveau de r\'ef\'erence le plus haut.
+sur lui-m\^eme 62 fois dans le but d'\'eviter le sch\'ema \`a rallonge (avec 63 bo\^ites diff\'erentes…).
+L'entr\'ee du premier bloc de comparaison (comparateur et seuil gr\^ace \`a la r\'esistance) prend en compte
+le signal en sortie de l'\'echantillonneur bloqueur ainsi que le niveau de r\'ef\'erence le plus haut.
 Le second \'etage de comparaison a pour entr\'ee la sortie de premier \'etage ainsi que le signal \'echantillonn\'e.
 Cet \'etage compare donc le signal \'echantillonn\'e et le seuil num\'ero 2 (deux r\'esistances \'egales en s\'erie).
 
@@ -326,7 +344,7 @@ de 64 r\'esistances en s\'erie.
 
 La simulation globale de cet \'etage est tr\`es int\'eressante. En effet, les courbes pr\'esentent des valeurs de
 seuils tr\`es diff\'erentes de celles \textcolor{red}{pressenties} par le calcul (niveaux nets cr\'es par des r\'esistances en s\'erie).
-En fait, les entr\'ees des comparateurs sont des gros transistors NMOS. Par cons\'equent, leurs capacit\'es d’entr\'ee
+En fait, les entr\'ees des comparateurs sont des gros transistors NMOS. Par cons\'equent, leurs capacit\'es d'entr\'ee
 sont tr\`es importantes ; une fois reli\'ees \`a des r\'esistances (pont de r\'esistances), des effets de filtrages
 apparaissent et d\'egradent les niveaux de seuils.
 
@@ -344,9 +362,20 @@ Mettre une bascule \`a la fin du comparateur pour bien synchro avec le d\'ecodeu
 
 \clearpage
 
+\section{Am\'eliorations possibles}
+
 \section{Conclusion}
 
+\clearpage
+
 \section{Glossaire}
+
+\clearpage
+
+\section{Fiche descriptive des caract\'eristiques}
+
+\clearpage
+
 \section{Annexes}
 
 \clearpage
@@ -356,13 +385,19 @@ Mettre une bascule \`a la fin du comparateur pour bien synchro avec le d\'ecodeu
 \begin{thebibliography}{9}
 \bibitem{Razavi}
 \textit{Design of Analog CMOS Integrated Circuits}
-\\\texttt{Behzad Razavi, McGraw-Hill Higher Education }
+\\\texttt{Behzad Razavi, McGraw-Hill Higher Education.}
 
 \bibitem{Razavi Data-Conversion}
 \textit{AnalogtoDigital Converter Architectures}
 \textit{in Principles of Data Conversion System Design}\\
-Behzad Razavi, Wiley-IEEE Press, 1995, pp.96-152. \textbf{doi: 10.1109/9780470545638.ch6}
+\texttt{Behzad Razavi, Wiley-IEEE Press, 1995, pp.96-152}.\\
+\textbf{doi: 10.1109/9780470545638.ch6}
 
+\bibitem{Thermometer}
+\textit{Verilog HDL model based thermometer-to-binary encoder with bubble error correction}\\
+\texttt{Zbigniew Jaworski, Warsaw University of Technology}\\
+\textit{Conference: 2016 MIXDES - 23rd International Conference "Mixed Design of Integrated Circuits and Systems"}\\
+\textbf{doi: 10.1109/MIXDES.2016.7529741}
 
 \end{thebibliography}
 
