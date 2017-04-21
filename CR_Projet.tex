@@ -1,0 +1,198 @@
+\documentclass[11pt]{article}
+\renewcommand{\baselinestretch}{1.05}
+
+\usepackage{amsmath,amsthm,verbatim,amssymb,amsfonts,amscd, graphicx}
+\usepackage{graphics}
+
+\usepackage{xcolor}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+
+% Code specific
+
+\usepackage{listings}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+%
+
+\renewcommand{\contentsname}{Table des mati\`eres}
+
+\topmargin0.0cm
+\headheight0.0cm
+\headsep0.0cm
+\oddsidemargin0.0cm
+\textheight23.0cm
+\textwidth16.5cm
+\footskip1.0cm
+
+\begin{document}
+
+\title{\textbf{Projet de Conception en Micro\'electronique Analogique} \\ R\'ealisation d'un CAN FLASH 6 bits}
+\author{Mohamed Hage Hassan \\ Ferdinand Goumis}
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\clearpage
+
+\tableofcontents
+\clearpage
+
+\section{Introduction}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt ut risus eget feugiat.
+Etiam eget viverra purus, sed iaculis dui. Duis vel urna tempus, placerat dolor ut, molestie erat.
+Praesent non dapibus tortor. Vestibulum facilisis mollis urna a fringilla. Nulla consequat lacus in dolor mattis varius.
+Praesent pharetra, mauris quis pretium tincidunt, tortor risus lobortis leo, sit amet mattis metus leo a dolor.
+ Curabitur mi risus, lacinia a lacus ut, porta hendrerit quam. Ut dignissim fermentum bibendum.
+ Mauris auctor tincidunt enim, nec auctor mi faucibus quis. Sed volutpat augue non ligula iaculis, pharetra elementum dolor accumsan.
+ Duis semper semper erat id accumsan. Cras consectetur varius varius. Sed porta semper tellus, quis auctor lacus euismod cursus.
+
+\textit{Note :} Certaines illustrations sont extraites des projets.
+
+\section{Cahier des charges}
+Le projet n\'ecessite d'avoir :
+\begin{itemize}
+\item[-] Une r\'esolution du CAN-FLASH de 6 bits, ce qui implique l'utilisation de $2^{6} -1 = 63 $ comparateurs.
+\item[-] Dynamique du signal en entr\'ee $V_e \in [0.5 V,\phantom{2} 2.5V]$
+\item[-] Fr\'equence d'\'echantillonnage : $f_h = 20 MHz $
+\item[-] \textbf{\textcolor{red}{Plus..}}
+\end{itemize}
+
+\section{Mise en place de l'\'echantillonneur-bloqueur}
+Pour qu'on puisse convertir le signal, on doit impl\'ementer une \'etape d'\'echantillonnage, avec un fonctionnement \`a haute fr\'equence, avant la r\'ealisation de l'\'etape de comparaison, qui consiste \`a comparer les diff\'erents niveaux obtenus par \'echantillonnage avec l'amplitude du signal initial, modifi\'ee par le pont de diviseurs de tensions.
+
+On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'es commut\'ees
+
+\subsection{Principe de fonctionnement}
+
+\begin{center}
+    \textbf{Explication des diff\'erents phases de fonctionnement + \textcolor{red}{d\'emonstrations th\'eoriques}}
+\end{center}
+
+\subsection{Simulation avec des \'el\'ements id\'eaux}
+
+\section{R\'ealisation d'un Amplificateur OTA \`a deux \'etages}
+
+\subsection{Cahier des charges et dimensionnements}
+\subsection{Simulation et optimisation}
+
+\section{Mise en oeuvre des comparateurs synchronis\'es par horloge}
+
+Le comparateur \`a impl\'ementer est illustr\'e par la figure X.
+
+\begin{figure}[!htb]
+\centering
+%\includegraphics[scale=0.35]{comparateur_.jpg}
+\caption{Comparateurs synchronis\'es par horloge avec une paire crois\'ee}
+\end{figure}
+
+\subsection{Principe de fonctionnement}
+\subsection{Partie Th\'eorique}
+\subsubsection{Imp\'edance diff\'erentielle n\'egative et expression du Gain}
+\subsubsection{D\'etermination du courant et dimensionnements}
+\subsection{Simulations/Optimisations}
+
+\clearpage
+
+\section{R\'ealisation du d\'ecodeur en VHDL}
+\subsection{Programmation et synth\`ese automatique du circuit}
+On utilise un code existant en Verilog, fait par ``Zbigniew	Jaworski'', universit\'e de Warsaw.
+Ce code permet de .. $+$ \textbf{\textcolor{red}{explication}}
+
+\begin{lstlisting}[language=Verilog]
+module thermo2bin (thermob, bin)
+input[62:0] thermob;
+output [5:0] bin;
+
+reg [62:0] thermo;
+reg [5:0] bin, bin1, bin2;
+integer i, j, k;
+
+always @(thermob)
+begin
+  for (k = 0; k <=60; k=k+1)
+    thermo[k] <= thermob[k] || thermob[k+1] || thermob[k+2];
+
+  thermo[61] <= thermob[61] || thermob[62];
+  thermo[62] <= thermob[62];
+end
+
+always @(thermo)
+begin
+  bin1 = 0;
+  for(i=1; i <= 32; i=i+1)
+    if (thermo[i-1] = 1'b1) bin1 = i;
+end
+
+always @(thermo)
+begin
+  bin2 = 0;
+  for(j=1; j<=31; j=j+1)
+    if(thermo[k+31] == 1'b1) bin2 = j;
+end
+
+always @(bin1 or bin2)
+if (thermo[31] == 1'b1)
+  bin = bin2 + 32;
+else
+  bin = bin1;
+
+endmodule
+
+\end{lstlisting}
+
+\subsubsection{Fonctionnement}
+\subsubsection{Synth\`ese}
+
+\section{Layout}
+\subsection{Mise en place des \'el\'ements du montage final}
+\subsection{Simulation}
+
+\clearpage
+
+\addcontentsline{toc}{section}{R\'ef\'erences}
+
+\begin{thebibliography}{9}
+\bibitem{Razavi}
+\textit{Design of Analog CMOS Integrated Circuits}
+\\\texttt{Behzad Razavi, McGraw-Hill Higher Education }
+
+\end{thebibliography}
+
+
+\end{document}
