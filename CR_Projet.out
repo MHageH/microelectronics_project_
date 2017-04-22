@@ -1,31 +1,33 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Cahier des charges}{}% 2
-\BOOKMARK [1][-]{section.3}{Mise en place de l'\351chantillonneur-bloqueur}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Principe de fonctionnement}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{Simulation avec des \351l\351ments id\351aux}{section.3}% 5
-\BOOKMARK [1][-]{section.4}{R\351alisation d'un Amplificateur OTA \340 deux \351tages}{}% 6
-\BOOKMARK [2][-]{subsection.4.1}{Cahier des charges et dimensionnements}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.2}{Simulation et optimisation}{section.4}% 8
-\BOOKMARK [1][-]{section.5}{Mise en oeuvre des comparateurs synchronis\351s par horloge}{}% 9
-\BOOKMARK [2][-]{subsection.5.1}{Principe de fonctionnement}{section.5}% 10
-\BOOKMARK [2][-]{subsection.5.2}{Partie Th\351orique}{section.5}% 11
-\BOOKMARK [3][-]{subsubsection.5.2.1}{Imp\351dance diff\351rentielle n\351gative et expression du Gain}{subsection.5.2}% 12
-\BOOKMARK [3][-]{subsubsection.5.2.2}{D\351termination du courant et dimensionnements}{subsection.5.2}% 13
-\BOOKMARK [2][-]{subsection.5.3}{Simulations/Optimisations}{section.5}% 14
-\BOOKMARK [1][-]{section.6}{R\351alisation du d\351codeur en VHDL}{}% 15
-\BOOKMARK [2][-]{subsection.6.1}{Programmation et synth\350se automatique du circuit}{section.6}% 16
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Fonctionnement}{subsection.6.1}% 17
-\BOOKMARK [3][-]{subsubsection.6.1.2}{Synth\350se}{subsection.6.1}% 18
-\BOOKMARK [1][-]{section.7}{Sch\351ma Global}{}% 19
-\BOOKMARK [2][-]{subsection.7.1}{Mise en place des \351l\351ments du montage final}{section.7}% 20
-\BOOKMARK [2][-]{subsection.7.2}{Simulations}{section.7}% 21
-\BOOKMARK [2][-]{subsection.7.3}{Etage de d\351codage}{section.7}% 22
-\BOOKMARK [1][-]{section.8}{Layout}{}% 23
-\BOOKMARK [2][-]{subsection.8.1}{Mise en oeuvre}{section.8}% 24
-\BOOKMARK [2][-]{subsection.8.2}{Simulation}{section.8}% 25
-\BOOKMARK [1][-]{section.9}{Am\351liorations possibles}{}% 26
-\BOOKMARK [1][-]{section.10}{Conclusion}{}% 27
-\BOOKMARK [1][-]{section.11}{Glossaire}{}% 28
-\BOOKMARK [1][-]{section.12}{Fiche descriptive des caract\351ristiques}{}% 29
-\BOOKMARK [1][-]{section.13}{Annexes}{}% 30
-\BOOKMARK [1][-]{section.13}{R\351f\351rences}{}% 31
+\BOOKMARK [1][-]{section.3}{M\351thodologie de travail}{}% 3
+\BOOKMARK [1][-]{section.4}{Mise en place de l'\351chantillonneur-bloqueur}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Principe de fonctionnement}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Simulation avec des \351l\351ments id\351aux}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Simulation finale}{section.4}% 7
+\BOOKMARK [1][-]{section.5}{R\351alisation d'un Amplificateur OTA \340 deux \351tages}{}% 8
+\BOOKMARK [2][-]{subsection.5.1}{Cahier des charges et dimensionnements}{section.5}% 9
+\BOOKMARK [2][-]{subsection.5.2}{Simulation et optimisation}{section.5}% 10
+\BOOKMARK [1][-]{section.6}{Mise en oeuvre des comparateurs synchronis\351s par horloge}{}% 11
+\BOOKMARK [2][-]{subsection.6.1}{Principe de fonctionnement}{section.6}% 12
+\BOOKMARK [2][-]{subsection.6.2}{Partie Th\351orique}{section.6}% 13
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Phase de comparaison \(niveau d'horloge bas\)}{subsection.6.2}% 14
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Phase de m\351morisation \(niveau d'horloge haut\)}{subsection.6.2}% 15
+\BOOKMARK [2][-]{subsection.6.3}{Simulations/Optimisations}{section.6}% 16
+\BOOKMARK [1][-]{section.7}{R\351alisation du d\351codeur en VHDL}{}% 17
+\BOOKMARK [2][-]{subsection.7.1}{Programmation et synth\350se automatique du circuit}{section.7}% 18
+\BOOKMARK [3][-]{subsubsection.7.1.1}{Fonctionnement}{subsection.7.1}% 19
+\BOOKMARK [3][-]{subsubsection.7.1.2}{Synth\350se}{subsection.7.1}% 20
+\BOOKMARK [1][-]{section.8}{Sch\351ma Global}{}% 21
+\BOOKMARK [2][-]{subsection.8.1}{Mise en place des \351l\351ments du montage final}{section.8}% 22
+\BOOKMARK [2][-]{subsection.8.2}{Simulations}{section.8}% 23
+\BOOKMARK [2][-]{subsection.8.3}{Etage de d\351codage}{section.8}% 24
+\BOOKMARK [1][-]{section.9}{Layout}{}% 25
+\BOOKMARK [2][-]{subsection.9.1}{Mise en oeuvre}{section.9}% 26
+\BOOKMARK [2][-]{subsection.9.2}{Simulation}{section.9}% 27
+\BOOKMARK [1][-]{section.10}{Am\351liorations possibles}{}% 28
+\BOOKMARK [1][-]{section.11}{Conclusion}{}% 29
+\BOOKMARK [1][-]{section.12}{Glossaire}{}% 30
+\BOOKMARK [1][-]{section.13}{Fiche descriptive des caract\351ristiques}{}% 31
+\BOOKMARK [1][-]{section.14}{Annexes}{}% 32
+\BOOKMARK [1][-]{section.14}{R\351f\351rences}{}% 33

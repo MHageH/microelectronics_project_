@@ -9,6 +9,8 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{parskip}
 
+\usepackage{subcaption}
+
 % Code specific
 
 \usepackage{listings}
@@ -62,11 +64,11 @@
 
 \title{\textbf{Projet de Conception en Micro\'electronique Analogique} \\ R\'ealisation d'un CAN FLASH 6 bits}
 \author{Ferdinand Goumis \\ Mohamed Hage Hassan \medskip\\\medskip \textbf{Encadrants} \medskip \\ Fatah Ellah Rarbi \\ Daniel Dzahini \\ Florent Cilici \\ Laurent Aubard}
-\date{20 Avril 2017}
+\date{22 Avril 2017}
 \maketitle
 \thispagestyle{empty}
 
-\renewcommand{\abstractname}{Abstrait}
+\renewcommand{\abstractname}{Abstrait(Pr\'emabule)}
 
 \begin{abstract}
 Quisque hendrerit finibus lacus pulvinar semper.
@@ -114,6 +116,19 @@ Le projet n\'ecessite d'avoir :
 \item[-] \textbf{\textcolor{red}{Plus..}}
 \end{itemize}
 
+\section{M\'ethodologie de travail}
+Notre m\'ethode de travail tout au long du projet consiste \`a :
+\begin{itemize}
+  \item[-] D\'ecoupage du CAN-FLASH en \'el\'ements fonctionnels.
+  \item[-] Compr\'ehension du fonctionnement du bloc.
+  \item[-] Mise en place d'un sch\'ema en \'el\'ements ideaux et v\'erfication du fonctionnement attendu par simulations.
+  \item[-] \'Etude th\'eorique pour le bloc r\'eel, dimensionnement des transistors et mise en validation par reproduction
+  d'un sch\'ema et simulations.
+  \item[-] Mise en place d'un sch\'ema global pour sa validation en simulation (Echantillonneur-Bloqueur par example).
+\end{itemize}
+
+\clearpage
+
 \section{Mise en place de l'\'echantillonneur-bloqueur}
 Pour qu'on puisse convertir le signal, on doit impl\'ementer une \'etape d'\'echantillonnage, avec un fonctionnement \`a haute fr\'equence,
  avant la r\'ealisation de l'\'etape de comparaison, qui consiste \`a comparer les diff\'erents niveaux obtenus par \'echantillonnage avec l'amplitude du signal initial,
@@ -121,18 +136,39 @@ Pour qu'on puisse convertir le signal, on doit impl\'ementer une \'etape d'\'ech
 
 On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'es commut\'ees:
 
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[scale=0.30]{Echantillonneur-bloqueur.jpg}
+  \caption{Sch\'ema d'un \'echantilloneur-bloqueur \`a capacit\'es commut\'ees}
+\end{center}
+\end{figure}
+
 \subsection{Principe de fonctionnement}
 
 \begin{center}
     \textbf{Explication des diff\'erents phases de fonctionnement + \textcolor{red}{d\'emonstrations th\'eoriques}}
 \end{center}
 
+\clearpage
+
 \subsection{Simulation avec des \'el\'ements id\'eaux}
 
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[scale=0.45]{Echantillonneur-bloqueur_ideal.jpg}
+  \caption{Sch\'ema de l'\'echantilloneur-bloqueur en \'el\'ements ideaux}
+\end{center}
+\end{figure}
+
+\subsection{Simulation finale}
+
+\clearpage
 \section{R\'ealisation d'un Amplificateur OTA \`a deux \'etages}
 
 \subsection{Cahier des charges et dimensionnements}
 \subsection{Simulation et optimisation}
+
+\clearpage
 
 \section{Mise en oeuvre des comparateurs synchronis\'es par horloge}
 \subsection{Principe de fonctionnement}
@@ -153,9 +189,10 @@ La propri\'et\'e comparatrice est effectu\'ee par la paire diff\'erentielle $N_1
 ou \`a la masse \`a travers le transistor $N_6$ qui est alors passant.
 
 \subsection{Partie Th\'eorique}
-Afin d'au mieux dimensionner ce comparateur, nous avons effectu\'e les hypoth\`eses et calculs suivants :
+Afin d'au mieux dimensionner ce comparateur, nous avons effectu\'e les hypoth\`eses et calculs suivants,
+par rapport au courant et aux dimensions des transistors:
 
-Les calculs qui suivent sont valables dans la phase de comparaison (niveau d'horloge bas) :
+\subsubsection{Phase de comparaison (niveau d'horloge bas)}
 
 Pour $V_{EP}-V_{EN}$ tr\`es diff\'erent de $0$ (cas d'une entr\'ee repr\'esentant le signal et l'autre un seuil),
 le courant $I_0$ capable de charger ou d\'echarger la capacit\'e aux nœuds $S_N$ ou $S_P$ en $\frac{1}{4}$ de
@@ -234,11 +271,11 @@ la capacit\'e estim\'ee par simulation au noeud B en $\frac{1}{4}$ de p\'eriode 
 I_{N_8} = \frac {V_B C_B}{\frac{1}{4} T_H} = 2 µA
 \]
 
+\iffalse
 \textbf{\textcolor{red}{Mettre les simulations}}
+\fi
 
-\clearpage
-
-Les calculs qui suivent sont d\'esormais valables pour la phase de m\'emorisation (niveau d'horloge haut) :
+\subsubsection{Phase de m\'emorisation (niveau d'horloge haut)}
 
 Afin que la chute de tension dans le transistor $N_6$  \`a l'\'etat ON soit de l'ordre de $0,5 V$ lorsque $H=1$
 pour un courant $I_{N_6}= I_0$, il vient :
@@ -257,16 +294,72 @@ Pour une tension de mode commun en sortie $V_{SP}=V_{SN} = \frac{V_{dd}}{2}$,
   \bigg(\frac{W}{L} \bigg)_{N_{4,5}} = 0.70
 \]
 
+\clearpage
+
+\begin{figure}[!htb]
+      \centering
+      \includegraphics[width=0.9\linewidth]{comparateur_schema_cadence_.jpg}
+      \caption{Sch\'ema \'electrique}
+      \label{fig:schcomp}
+\end{figure}%
+
+
+\subsection{Simulations/Optimisations}
+
 Finalement, les simulations pr\'esentent un comparateur qui est approximatif : la sortie en mode
 commun n'est jamais r\'eellement soit \`a 0 ou \`a 3.3 V. En effet, le z\'ero logique se situe autour de 1.65 V
 et le 1 logique varie entre 2.5 et 3 V.
 
+\begin{figure}[!htb]
+      \centering
+      \includegraphics[width=0.8\linewidth]{sim_comp_before_SR_FF.jpg}
+      \caption{Simulation avant l'ajout des buffers + bascules}
+      \label{fig:sfigBSRFF}
+\end{figure}%
+
 Nous avons donc rajout\'e des inverseurs et un \textbf{\textcolor{red}{LATCH??} } en sortie afin de m\'emoriser
 un 0 ou un 1 logique.
 
+\begin{figure}[!htb]
+      \centering
+      \includegraphics[width=0.9\linewidth]{comparateur_schema_cadence_SR.jpg}
+      \caption{Sch\'ema \'electrique}
+      \label{fig:schcompSR}
+\end{figure}%
+
+\begin{figure}[!htb]
+      \centering
+      \includegraphics[width=\linewidth]{sim_comp_after_SR_FF.jpg}
+      \caption{Simulation apr\`es l'ins\'ertion de ces \'el\'ements}
+      \label{fig:sfigASRFF}
+\end{figure}%
+
+
+\iffalse
+\begin{figure}[!htb]
+  \begin{subfigure}{.5\textwidth}
+      \centering
+      \includegraphics[width=1.2\linewidth]{sim_comp_before_SR_FF.jpg}
+      \caption{Simulation avant l'ajout des buffers + bascules}
+      \label{fig:sfigBSRFF}
+  \end{subfigure}%
+
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=1.2\linewidth]{sim_comp_after_SR_FF.jpg}
+    \caption{Simulation apr\`es l'ins\'ertion de ces \'el\'ements}
+    \label{fig:sfigASRFF}
+  \end{subfigure}
+
+  \caption{Diff\'erence en sortie en simulation entre comparateurs sans/avec bascule SR respectivement}
+  \label{fig:figcomp}
+\end{figure}
+\fi
+
+\iffalse
 \subsubsection{Imp\'edance diff\'erentielle n\'egative et expression du Gain}
 \subsubsection{D\'etermination du courant et dimensionnements}
-\subsection{Simulations/Optimisations}
+\fi
 
 \clearpage
 
@@ -275,7 +368,7 @@ un 0 ou un 1 logique.
 On utilise un code existant en Verilog\cite{Thermometer}
 Ce code permet de .. $+$ \textbf{\textcolor{red}{explication}}
 
-\begin{lstlisting}[language=Verilog]
+\begin{lstlisting}[language=Verilog, belowskip=-0.5 \baselineskip]
 module thermo2bin (thermob, bin)
 input[62:0] thermob;
 output [5:0] bin;
@@ -320,6 +413,8 @@ endmodule
 \subsubsection{Fonctionnement}
 \subsubsection{Synth\`ese}
 
+\clearpage
+
 \section{Sch\'ema Global}
 \subsection{Mise en place des \'el\'ements du montage final}
 La mise en oeuvre du sch\'ema final se fait par le placement de l'\'echantillonneur bloqueur
@@ -327,9 +422,19 @@ ainsi que les 63 comparateurs et le pont de r\'esistance pour la cr\'eation des 
 
 En soi, le sch\'ema est celui de la figure X :
 
+\iffalse
 \begin{center}
 \textbf{\textcolor{red}{Sch\'ema du l'\'echantillonneur-Bloqueur + CAN-FLASH \`a faire}}.\\
 \end{center}
+\fi
+
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[scale=0.50]{schema_final.jpg}
+  \caption{"Sch\'ema global du CAN-FLASH"}
+\end{center}
+\end{figure}
+
 Lors de cette \'etape, nous avons utilis\'e un bloc ``Comparateur + r\'esistance'' que nous avons boucl\'e
 sur lui-m\^eme 62 fois dans le but d'\'eviter le sch\'ema \`a rallonge (avec 63 bo\^ites diff\'erentes…).
 L'entr\'ee du premier bloc de comparaison (comparateur et seuil gr\^ace \`a la r\'esistance) prend en compte

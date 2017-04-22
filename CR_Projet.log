@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.12)  21 APR 2017 18:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.12)  22 APR 2017 18:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -283,24 +283,47 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen121
+\captionmargin@=\dimen122
+\captionwidth=\dimen123
+\caption@tempdima=\dimen124
+\caption@indent=\dimen125
+\caption@parindent=\dimen126
+\caption@hangindent=\dimen127
+)
+\c@ContinuedFloat=\count110
+Package caption Info: hyperref package is loaded.
+)
+\c@subfigure=\count111
+\c@subtable=\count112
+)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count110
+\lst@mode=\count113
 \lst@gtempboxa=\box28
 \lst@token=\toks29
-\lst@length=\count111
-\lst@currlwidth=\dimen121
-\lst@column=\count112
-\lst@pos=\count113
-\lst@lostspace=\dimen122
-\lst@width=\dimen123
-\lst@newlines=\count114
-\lst@lineno=\count115
-\lst@maxwidth=\dimen124
+\lst@length=\count114
+\lst@currlwidth=\dimen128
+\lst@column=\count115
+\lst@pos=\count116
+\lst@lostspace=\dimen129
+\lst@width=\dimen130
+\lst@newlines=\count117
+\lst@lineno=\count118
+\lst@maxwidth=\dimen131
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
-\c@lstnumber=\count116
-\lst@skipnumbers=\count117
+\c@lstnumber=\count119
+\lst@skipnumbers=\count120
 \lst@framebox=\box29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
@@ -314,32 +337,32 @@ File: lstlang1.sty 2014/09/06 1.5e listings language file
 (./CR_Projet.aux)
 \openout1 = `CR_Projet.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
  (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count118
-\scratchdimen=\dimen125
+\scratchcounter=\count121
+\scratchdimen=\dimen132
 \scratchbox=\box30
-\nofMPsegments=\count119
-\nofMParguments=\count120
+\nofMPsegments=\count122
+\nofMParguments=\count123
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count121
-\MPscratchDim=\dimen126
-\MPnumerator=\count122
-\makeMPintoPDFobject=\count123
+\MPscratchCnt=\count124
+\MPscratchDim=\dimen133
+\MPnumerator=\count125
+\makeMPintoPDFobject=\count126
 \everyMPtoPDFconversion=\toks31
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -357,7 +380,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring OFF on input line 61.
+Package hyperref Info: Link coloring OFF on input line 63.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -365,23 +388,26 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count124
+\c@section@level=\count127
 )
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
+LaTeX Info: Redefining \ref on input line 63.
+LaTeX Info: Redefining \pageref on input line 63.
+LaTeX Info: Redefining \nameref on input line 63.
 
 (./CR_Projet.out) (./CR_Projet.out)
 \@outlinefile=\write3
 \openout3 = `CR_Projet.out'.
 
-\c@lstlisting=\count125
-LaTeX Font Info:    Try loading font information for U+msa on input line 67.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count128
+LaTeX Font Info:    Try loading font information for U+msa on input line 69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 67.
+LaTeX Font Info:    Try loading font information for U+msb on input line 69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -393,30 +419,47 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [2
 
+] [3
+
 ]
-<comparateur_schema.jpg, id=174, 1275.76625pt x 717.68124pt>
+<Echantillonneur-bloqueur.jpg, id=193, 678.535pt x 511.9125pt>
+File: Echantillonneur-bloqueur.jpg Graphic file (type jpg)
+
+<use Echantillonneur-bloqueur.jpg>
+Package pdftex.def Info: Echantillonneur-bloqueur.jpg used on input line 141.
+(pdftex.def)             Requested size: 203.56207pt x 153.57494pt.
+ [4
+
+ <./Echantillonneur-bloqueur.jpg>]
+<Echantillonneur-bloqueur_ideal.jpg, id=199, 856.19875pt x 590.205pt>
+File: Echantillonneur-bloqueur_ideal.jpg Graphic file (type jpg)
+
+<use Echantillonneur-bloqueur_ideal.jpg>
+Package pdftex.def Info: Echantillonneur-bloqueur_ideal.jpg used on input line 
+158.
+(pdftex.def)             Requested size: 385.28587pt x 265.58978pt.
+ [5
+
+ <./Echantillonneur-bloqueur_ideal.jpg>] [6
+
+] <comparateur_schema.jpg, id=209, 1275.76625pt x 717.68124pt>
 File: comparateur_schema.jpg Graphic file (type jpg)
 
 <use comparateur_schema.jpg>
-Package pdftex.def Info: comparateur_schema.jpg used on input line 144.
+Package pdftex.def Info: comparateur_schema.jpg used on input line 180.
 (pdftex.def)             Requested size: 484.79622pt x 272.7217pt.
 
-Overfull \hbox (15.32576pt too wide) in paragraph at lines 144--145
+Overfull \hbox (15.32576pt too wide) in paragraph at lines 180--181
  [] 
  []
 
-[3
-
-]
-Missing character: There is no Â in font cmr10!
-Missing character: There is no   in font cmr10!
- [4 <./comparateur_schema.jpg>]
-Missing character: There is no Â in font cmr10!
-Missing character: There is no   in font cmr10!
 Missing character: There is no Å in font cmr10!
 Missing character: There is no “ in font cmr10!
 Missing character: There is no Â in font cmr10!
 Missing character: There is no   in font cmr10!
+[7
+
+ <./comparateur_schema.jpg>]
 Missing character: There is no Â in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no Â in font cmr10!
@@ -425,21 +468,48 @@ Missing character: There is no Â in font cmr10!
 Missing character: There is no µ in font cmr10!
 Missing character: There is no Â in font cmr10!
 Missing character: There is no µ in font cmr10!
- [5]
 Missing character: There is no Â in font cmr10!
 Missing character: There is no µ in font cmr10!
 Missing character: There is no Â in font cmr10!
 Missing character: There is no µ in font cmr10!
+ [8]
 Missing character: There is no Â in font cmr10!
 Missing character: There is no µ in font cmr10!
- [6]
-Missing character: There is no Â in font cmr10!
-Missing character: There is no   in font cmr10!
+ [9]
+<comparateur_schema_cadence_.jpg, id=227, 1209.51875pt x 721.69624pt>
+File: comparateur_schema_cadence_.jpg Graphic file (type jpg)
+
+<use comparateur_schema_cadence_.jpg>
+Package pdftex.def Info: comparateur_schema_cadence_.jpg used on input line 301
+.
+(pdftex.def)             Requested size: 422.52054pt x 252.11293pt.
+
+<sim_comp_before_SR_FF.jpg, id=228, 1263.72125pt x 725.71124pt>
+File: sim_comp_before_SR_FF.jpg Graphic file (type jpg)
+
+<use sim_comp_before_SR_FF.jpg>
+Package pdftex.def Info: sim_comp_before_SR_FF.jpg used on input line 315.
+(pdftex.def)             Requested size: 375.57779pt x 215.67754pt.
 Missing character: There is no Â in font cmbx10!
 Missing character: There is no   in font cmbx10!
- [7
 
-]
+<comparateur_schema_cadence_SR.jpg, id=229, 1125.20375pt x 660.4675pt>
+File: comparateur_schema_cadence_SR.jpg Graphic file (type jpg)
+
+<use comparateur_schema_cadence_SR.jpg>
+Package pdftex.def Info: comparateur_schema_cadence_SR.jpg used on input line 3
+25.
+(pdftex.def)             Requested size: 422.52054pt x 248.00726pt.
+ [10
+
+ <./comparateur_schema_cadence_.jpg> <./sim_comp_before_SR_FF.jpg>]
+<sim_comp_after_SR_FF.jpg, id=236, 1255.69125pt x 691.58376pt>
+File: sim_comp_after_SR_FF.jpg Graphic file (type jpg)
+
+<use sim_comp_after_SR_FF.jpg>
+Package pdftex.def Info: sim_comp_after_SR_FF.jpg used on input line 332.
+(pdftex.def)             Requested size: 469.47046pt x 258.56236pt.
+ [11 <./comparateur_schema_cadence_SR.jpg> <./sim_comp_after_SR_FF.jpg>]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
@@ -449,62 +519,74 @@ File: lstlang2.sty 2014/09/06 1.5e listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2014/09/06 1.5e listings language file
 )
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 289.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 382.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 289.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 290.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 382.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 383.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 290.
- [8
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 383.
+ [12
 
 ]
+<schema_final.jpg, id=292, 799.98875pt x 757.83125pt>
+File: schema_final.jpg Graphic file (type jpg)
+ <use schema_final.jpg>
+Package pdftex.def Info: schema_final.jpg used on input line 433.
+(pdftex.def)             Requested size: 399.9934pt x 378.9147pt.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ¦ in font cmr10!
 Missing character: There is no Â in font cmr10!
 Missing character: There is no   in font cmr10!
+
+[13
+
+ <./schema_final.jpg>]
 Missing character: There is no Â in font cmr10!
 Missing character: There is no   in font cmr10!
- [9] [10] [11
+ [14] [15
+
+] [16
+
+] [17
+
+] [18
 
 ]
-[12
-
-] [13
-
-] [14
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 510.
+ [19
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 405.
- [15
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 405.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 510.
  (./CR_Projet.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 405.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 405.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 510.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 510.
 Package rerunfilecheck Info: File `CR_Projet.out' has not changed.
-(rerunfilecheck)             Checksum: 8B776AA1261F944B7E4627C887598136;2245.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 405.
+(rerunfilecheck)             Checksum: 4F30D431D5AB5FF809DC99D09037BF43;2359.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 510.
  ) 
 Here is how much of TeX's memory you used:
- 8197 strings out of 495020
- 116754 string characters out of 6181324
- 335540 words of memory out of 5000000
- 11210 multiletter control sequences out of 15000+600000
+ 9303 strings out of 495020
+ 137267 string characters out of 6181324
+ 354833 words of memory out of 5000000
+ 12287 multiletter control sequences out of 15000+600000
  14671 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 29i,7n,43p,242b,1434s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,7n,43p,249b,1436s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -521,10 +603,10 @@ re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on CR_Projet.pdf (15 pages, 307738 bytes).
+Output written on CR_Projet.pdf (19 pages, 1501328 bytes).
 PDF statistics:
- 364 PDF objects out of 1000 (max. 8388607)
- 325 compressed objects within 4 object streams
- 91 named destinations out of 1000 (max. 500000)
- 254 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 407 PDF objects out of 1000 (max. 8388607)
+ 357 compressed objects within 4 object streams
+ 104 named destinations out of 1000 (max. 500000)
+ 305 words of extra memory for PDF output out of 10000 (max. 10000000)
 
