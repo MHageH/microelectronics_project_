@@ -564,7 +564,35 @@ Mettre une bascule \`a la fin du comparateur pour bien synchro avec le d\'ecodeu
 
 \section{Am\'eliorations possibles}
 
+Finalement, notre convertisseur fonctionne presque parfaitement : l'\'etage d'\'echantillonneur bloqueur remplit tout \`a fait son r\^ole.
+En revanche, certains \'etages de comparaison n'affichent pas toujours la bonne valeur. Th\'eoriquement, si l'\'etage de comparaison n sort
+la valeur 1 en code thermom\'etrique, les \'etages $>$ n doivent \'egalement afficher 1 et $<$ n, 0 Dans nos simulations, il arrive que des \'etages
+sup\'erieurs soient \`a 0.
+
+Nous soup\c connons les inverseurs et portes NAND de mal interpr\'eter la tension en sortie d'un comparateur et de mal traduire l'information.
+Pour contrer ces probl\`emes mineurs (moins d'une comparaison fausse sur 10), il faudrait revoir la partie droite de l'\'etage de comparaison
+concernant le latch et la polarisation de sortie. On pourrait par exemple optimiser la puissances des portes logiques ou calculer avec de
+plus fins mod\`eles les caract\'eristiques des transistors concern\'e sur le comparateur.
+
+L'\'etage d\'ecodeur de code thermom\'etrique vers binaire fonctionne parfaitement mais est impact\'e par le probl\`eme susmentionn\'e de fausse comparaison.
+Il en r\'esulte une erreur d'environ trois valeurs sur 64 ce qui fausse le code binaire final.
+
 \section{Conclusion}
+
+La r\'ealisation d'un CAN Flash 6 bits pr\'esent\'ee dans ce projet fut une bonne exp\'erience dans la mesure o\`u nous sommes d\'esormais conscients
+de la complexit\'e \`a r\'ealiser un convertisseur efficace et s\^ur.
+Le d\'ebut du projet fut d\'elicat car nous \'etions confront\'es \`a de lourds sch\'emas \'electriques \`a r\'ealiser. Leur optimisation prit du temps et
+passa par de nombreux calculs th\'eoriques vus en cours de convertisseurs ou d'\'electronique analogique.
+Ce projet fut \'egalement l'occasion de v\'eritablement prendre en main le logiciel Virtuoso de Cadence \`a travers les outils de simulation,
+ de variables ajust\'ees, de sources de courant ou tension parfaites. Nous maîtrisons d\'esormais ce logiciel et sommes aptes \`a l'utiliser \`a
+ des fins de recherche ou dans l'industrie.
+
+Nous sommes ravis d'avoir pu r\'efl\'echir par nous-même et mobiliser nos connaissances acquises dans plusieurs cours cette ann\'ee au service
+de ce projet. Il a eu un r\'eel impact sur notre maîtrise de Cadence et sur le d\'eroulement de la phase de conception d'un circuit \'electronique,
+en l'occurrence d'un comparateur Flash.
+
+Nous remercions les professeurs encadrants de nous avoir transmis leurs connaissances et astuces dans le domaine, nous les utiliserons
+\`a bon escients \`a l'avenir.
 
 \clearpage
 
