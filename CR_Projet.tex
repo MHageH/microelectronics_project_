@@ -64,7 +64,7 @@
 
 \title{\textbf{Projet de Conception en Micro\'electronique Analogique} \\ R\'ealisation d'un CAN FLASH 6 bits}
 \author{Ferdinand Goumis \\ Mohamed Hage Hassan \medskip\\\medskip \textbf{Encadrants} \medskip \\ Fatah Ellah Rarbi \\ Daniel Dzahini \\ Florent Cilici \\ Laurent Aubard}
-\date{22 Avril 2017}
+\date{24 Avril 2017}
 \maketitle
 \thispagestyle{empty}
 
@@ -155,18 +155,88 @@ On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'es co
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[scale=0.45]{Echantillonneur-bloqueur_ideal.jpg}
+  \includegraphics[scale=0.35]{Echantillonneur-bloqueur_ideal.png}
   \caption{Sch\'ema de l'\'echantilloneur-bloqueur en \'el\'ements ideaux}
 \end{center}
 \end{figure}
 
+\clearpage
+
+\subsection{R\'ealistation des switchs r\'eels et simulations}
+
+\textbf{Vue th\'eorique et Dimmensionnements}
+
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[width=0.8\linewidth]{switchs_.png}
+  \caption{Sch\'ema \'electrique des switch en CMOS}
+\end{center}
+\end{figure}
+
+\textbf{V\'erification des performances par simulations}
+
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[width=0.8\linewidth]{switchs_simu.png}
+  \caption{Sch\'ema \'electrique des switch en CMOS}
+\end{center}
+\end{figure}
+
+
+
+\clearpage
+
 \subsection{Simulation finale}
+En rassemblant tous les \'el\'ements, on aboutit au sch\'ema suivant :
+
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[width=0.8\linewidth]{EB-Schematic.png}
+  \caption{Sch\'ema de l'\'echantilloneur-bloqueur r\'eel}
+\end{center}
+\end{figure}
+
+Effectuant la simulation :
+
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[width=0.8\linewidth]{simu_ech_bloqueur.png}
+  \caption{Sch\'ema de l'\'echantilloneur-bloqueur r\'eel}
+\end{center}
+\end{figure}
+
 
 \clearpage
 \section{R\'ealisation d'un Amplificateur OTA \`a deux \'etages}
 
-\subsection{Cahier des charges et dimensionnements}
+\subsection{Cahier des charges}
+
+\textbf{Le cahier de charges n\'ecessite :}
+\begin{itemize} \itemsep -2pt
+  \item[-]
+  \item[-]
+\end{itemize}
+
+\subsection{Calcul th\'eorique et dimensionnements}
+
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[width=\linewidth]{amplificateur_.png}
+  \caption{Architecture de l'amplificateur \`a deux \'etages apr\`es dimensionnements}
+\end{center}
+\end{figure}
+
+\clearpage
+
 \subsection{Simulation et optimisation}
+
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[width=\linewidth]{reponse_ampli.png}
+  \caption{Architecture de l'amplificateur \`a deux \'etages apr\`es dimensionnements}
+\end{center}
+\end{figure}
+
 
 \clearpage
 
@@ -298,7 +368,7 @@ Pour une tension de mode commun en sortie $V_{SP}=V_{SN} = \frac{V_{dd}}{2}$,
 
 \begin{figure}[!htb]
       \centering
-      \includegraphics[width=0.9\linewidth]{comparateur_schema_cadence_.jpg}
+      \includegraphics[width=0.9\linewidth]{comparateur_schema_cadence_.png}
       \caption{Sch\'ema \'electrique}
       \label{fig:schcomp}
 \end{figure}%
@@ -308,7 +378,8 @@ Pour une tension de mode commun en sortie $V_{SP}=V_{SN} = \frac{V_{dd}}{2}$,
 
 Finalement, les simulations pr\'esentent un comparateur qui est approximatif : la sortie en mode
 commun n'est jamais r\'eellement soit \`a 0 ou \`a 3.3 V. En effet, le z\'ero logique se situe autour de 1.65 V
-et le 1 logique varie entre 2.5 et 3 V.
+et le 1 logique varie entre 2.5 et 3 V. \textbf{\textcolor{red}{Sch\'ema ne correpsond pas \`a la description, simulation
+\`a refaire avec le bon dimensionnement du comporateur (dernier comp)}}
 
 \begin{figure}[!htb]
       \centering
@@ -317,12 +388,12 @@ et le 1 logique varie entre 2.5 et 3 V.
       \label{fig:sfigBSRFF}
 \end{figure}%
 
-Nous avons donc rajout\'e des inverseurs et un \textbf{\textcolor{red}{LATCH??} } en sortie afin de m\'emoriser
+Nous avons donc rajout\'e des inverseurs et une Bascule SR (en 2 Nandes interconnect\'ees) en sortie afin de m\'emoriser
 un 0 ou un 1 logique.
 
 \begin{figure}[!htb]
       \centering
-      \includegraphics[width=0.9\linewidth]{comparateur_schema_cadence_SR.jpg}
+      \includegraphics[width=0.9\linewidth]{comparateur_schema_cadence_SR.png}
       \caption{Sch\'ema \'electrique}
       \label{fig:schcompSR}
 \end{figure}%
@@ -363,10 +434,11 @@ un 0 ou un 1 logique.
 
 \clearpage
 
-\section{R\'ealisation du d\'ecodeur en VHDL}
+\section{R\'ealisation du d\'ecodeur en Verilog}
 \subsection{Programmation et synth\`ese automatique du circuit}
 On utilise un code existant en Verilog\cite{Thermometer}
-Ce code permet de .. $+$ \textbf{\textcolor{red}{explication}}
+Ce code permet de convertir les donn\'ees en code thermometrique en sortie des
+comparateurs vers un code binaire sur 6 bits (avec un pouvoir de bulles).
 
 \begin{lstlisting}[language=Verilog, belowskip=-0.5 \baselineskip]
 module thermo2bin (thermob, bin)
@@ -411,9 +483,25 @@ endmodule
 \end{lstlisting}
 
 \subsubsection{Fonctionnement}
+
+Ce module fonctionne du m\^eme principe de la lecture humaine : On essaye de lire le plus
+haut '1'. Ce bout de code \'etait optimis\'e pour qu'il fonctionne en 2 parties
+
+\textbf{\textcolor{red}{+explications..\cite{Thermometer}}}
+
 \subsubsection{Synth\`ese}
 
 \clearpage
+\subsection{Simulations}
+
+\begin{figure}[!htb]
+      \centering
+      \includegraphics[width=\linewidth]{test_thermo2bin.png}
+      \caption{Placement d'un band de test pour le code Verilog apr\`es synth\`ese.}
+\end{figure}%
+
+\clearpage
+
 
 \section{Sch\'ema Global}
 \subsection{Mise en place des \'el\'ements du montage final}
@@ -430,7 +518,7 @@ En soi, le sch\'ema est celui de la figure X :
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[scale=0.50]{schema_final.jpg}
+  \includegraphics[scale=0.50]{schema_final.png}
   \caption{"Sch\'ema global du CAN-FLASH"}
 \end{center}
 \end{figure}
@@ -461,19 +549,22 @@ Pour pallier ce ph\'enom\`ene, nous avons plac\'e un suiveur parfait (vcvs) dans
 
 Mettre une bascule \`a la fin du comparateur pour bien synchro avec le d\'ecodeur.
 
+\clearpage
+
 \section{Layout}
 \subsection{Mise en oeuvre}
-\subsection{Simulation}
+
+\begin{figure}[!htb]
+      \centering
+      \includegraphics[width=0.6\linewidth]{layout_.png}
+      \caption{Mise en place du layout d'un switch}
+\end{figure}%
 
 \clearpage
 
 \section{Am\'eliorations possibles}
 
 \section{Conclusion}
-
-\clearpage
-
-\section{Glossaire}
 
 \clearpage
 

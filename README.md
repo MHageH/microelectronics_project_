@@ -15,7 +15,7 @@ at the Grenoble Institute of Technology (Phelma).
 - [ ] Theoretical explanations for different parts
 - [ ] Introduction, Conclusion, (Annexes, Glossaire).
 - [ ] Screenshots of the different elements.
-- [ ] Add the different characteristics for the MOS transistors. 
+- [ ] Add the different characteristics for the MOS transistors.
 
 # TODO (Required-French)
 - [ ] Description du cahier des charges du projet,
