@@ -10,6 +10,7 @@
 \usepackage{parskip}
 
 \usepackage{subcaption}
+\usepackage{wrapfig}
 
 % Code specific
 
@@ -131,32 +132,115 @@ Notre m\'ethode de travail tout au long du projet consiste \`a :
 
 \section{Mise en place de l'\'echantillonneur-bloqueur}
 Pour qu'on puisse convertir le signal, on doit impl\'ementer une \'etape d'\'echantillonnage, avec un fonctionnement \`a haute fr\'equence,
- avant la r\'ealisation de l'\'etape de comparaison, qui consiste \`a comparer les diff\'erents niveaux obtenus par \'echantillonnage avec l'amplitude du signal initial,
-  modifi\'ee par le pont de diviseurs de tensions.
+avant la r\'ealisation de l'\'etape de comparaison, qui consiste \`a comparer les diff\'erents niveaux obtenus par \'echantillonnage avec l'amplitude du signal initial,
+modifi\'ee par le pont de diviseurs de tensions.
 
-On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'es commut\'ees:
+On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'e commut\'ee:
 
 \begin{figure}[!htb]
 \begin{center}
   \includegraphics[scale=0.30]{Echantillonneur-bloqueur.jpg}
-  \caption{Sch\'ema d'un \'echantilloneur-bloqueur \`a capacit\'es commut\'ees}
+  \caption{Sch\'ema d'un \'echantilloneur-bloqueur \`a capacit\'e commut\'ee}
 \end{center}
 \end{figure}
 
 \subsection{Principe de fonctionnement}
 
+On rappele qu'on a introduit un d\'ecalage entre les 2 horloges ($\Phi_1$ et $\Phi_2$) de 5 ns, sachant que la
+fr\'equence d'\'echantillonnage est de $20 MHz$.
+
+\begin{wrapfigure}{r}{0.5\textwidth}
 \begin{center}
-    \textbf{Explication des diff\'erents phases de fonctionnement + \textcolor{red}{d\'emonstrations th\'eoriques}}
+  \includegraphics[width=0.55\textwidth]{clocks_.png}
 \end{center}
+\caption{Horloges de candencement}
+\end{wrapfigure}
+
+\medskip
+L'echantillonneur bloqueur fonctionne en 2 r\'egime diff\'erents:
+\begin{itemize}
+  \item[-]\textbf{Phase m\'emoire} : C'est l'\'etape o\`u l'echantillonneur bloqueur
+  reste sur la m\^eme valeur de tension en sortie pendant une dur\'ee T.
+  \item[-]\textbf{Phase suiveur} : L'\'echantillonneur suit la variation d'entr\'ee.
+\end{itemize}
+
+Gr\^ace \`a la phase m\'emoire, l'\'echantillonneur permet de garder un niveau de tension
+fixe pour la conversion qui suit.
+
+Les sch\'ema \'electriques correspondant aux phases sont repr\'esent\'es par la figure \textbf{\textcolor{red}{X}}.
 
 \clearpage
+
+\begin{figure}[!htb]
+  \begin{subfigure}[t]{.5\linewidth}
+      \centering
+      \includegraphics[width=0.6\linewidth]{memoire_EB.png}
+      \caption{Phase de m\'emorisation}
+      \label{fig:sfigEBmem}
+  \end{subfigure}%
+  \begin{subfigure}[t]{.5\linewidth}
+    \centering
+    \includegraphics[width=0.6\linewidth]{suiveur_EB.png}
+    \caption{Phase suiveur}
+    \label{fig:sfigEBsuiv}
+  \end{subfigure}%
+  \caption{Diff\'erentes phases de fonctionnement de l'EB}
+  \label{fig:figEBfonct}
+\end{figure}
+
+\begin{itemize}
+  \item[-]\textbf{Phase m\'emoire} : On a $\overline{\Phi_1}$ et $\overline{\Phi_2}$, $\Phi_2 = 0$.\\
+  $C_{ech}$ renvoie sa valeur de la charge en sortie.
+  \item[-]\textbf{Phase suiveur} : On est \`a $\Phi_1$ et $\Phi_2$.\\
+  Sachant que l'amplificateur OTA, plac\'e en suiveur, a une tr\`es grande imp\'edance d'entr\'ee, on a $V_{e^{+}} = V_{e^{-}}$.\\
+  $C_{ech}$ prend la chage correspondante \`a $V_e - 1.5 V = V_e - \frac{V_{dd}}{2}$.
+ \end{itemize}
+
+Le d\'ecalage entre $\Phi_1$ et $\Phi_2$ entraine certainement le passage du transistor $M_1$ \`a l'\'etat ``Off'' avant le transitor
+$M_2$. Par rapport \`a l'injection des charges, la haute imp\'edance d'entr\'ee de l'amplificateur \'elimine cet effet au niveau
+de la capacit\'e $C_{ech}$, pendant le passage du MOS $M_1$ \`a l'\'etat ``Off''.
+
+Pendant la phase interm\'ediaire o\`u on a $\Phi_1$ et $\overline{\Phi_2}$, le passage du MOS $M_2$ \`a l'\'etat ``Off'' entraine
+l'injection des charges dans $C_{ech}$, mais celle-ci est constante du fait que $V_{e^{-}} = cte$.
+
+Le gain du minimal \'etait sup\'erieur \`a 300, pour une adaptation avec la r\'esolution de 6bits. Ce gain sera v\'erifi\'e
+dans la section \ref{OTA_sect}.
 
 \subsection{Simulation avec des \'el\'ements id\'eaux}
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[scale=0.35]{Echantillonneur-bloqueur_ideal.png}
+  \includegraphics[scale=0.30]{Echantillonneur-bloqueur_ideal.png}
   \caption{Sch\'ema de l'\'echantilloneur-bloqueur en \'el\'ements ideaux}
+\end{center}
+\end{figure}
+
+\clearpage
+
+On configure les horologes avec le d\'ecalage pr\'evu, et on choisi d'effectuer
+une analyse transitoire pour un signal d'entr\'ee sinuso\"idal de fr\'equence
+$f = 1 MHz$ et de variation $V_e \in [-3, 3\phantom{1}V]$, la plage de variation
+de 0.5 \`a 2.5 V n'est pas prise en consid\'eration pour le moment.
+
+En g\'en\'eral, toute les simulations effectu\'ees pendant le project sont en analyse
+transitoire, avec une dur\'ee de $1 \mu s$
+
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[width=0.8\linewidth]{simu_ech_bloqueur.png}
+  \caption{Simulation transitoire l'\'echantilloneur-bloqueur id\'eal}
+\end{center}
+\end{figure}
+
+Cette simulation prend en charge une variation d'un param\`etre ``gain'' de l'amplificateur
+pour observer le chagement de niveau de tension en sortie du signal echantillonn\'e
+en comparaison avec celui d'entr\'ee. On trouve qu'on a une meilleur approximation pour une
+valeur de gain assez \'el\'ev\'ee.
+
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[width=0.8\linewidth]{rapport_gain_bloquage.png}
+  \caption{Rapport gain-bloquage au niveau de l'\'echantilloneur-bloqueur id\'eal}
 \end{center}
 \end{figure}
 
@@ -164,7 +248,33 @@ On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'es co
 
 \subsection{R\'ealistation des switchs r\'eels et simulations}
 
-\textbf{Vue th\'eorique et Dimmensionnements}
+\textbf{Vue th\'eorique et Dimensionnements}
+
+La mise en place d'un \'echantillonneur bloqueur n\'ecessite la r\'ealisation
+des switch en CMOS.
+
+Du point du vue th\'eorique, un switch est une mise en parall\`ele de 2 transistors
+de type PMOS et NMOS (TGATE).
+
+\begin{figure}[!htb]
+  \begin{subfigure}[t]{.5\linewidth}
+      \centering
+      \includegraphics[width=0.7\linewidth]{tgate_.png}
+      \caption{Structure du TGate}
+      \label{fig:sfigtgate}
+  \end{subfigure}%
+  \begin{subfigure}[t]{.5\linewidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{var_ron.png}
+    \caption{Variation des $R_{ON}$ des MOS en fonction de $V_e$}
+    \label{fig:sfigron}
+  \end{subfigure}%
+  \caption{}
+  \label{fig:figswitchth}
+\end{figure}
+
+Ces switch seront dimmensionn\'es pour respect\'e le temps de charge de C
+correspondante \`a la fr\'equence d'\'echantillonnage de $20 MHz$.
 
 \begin{figure}[!htb]
 \begin{center}
@@ -172,6 +282,19 @@ On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'es co
   \caption{Sch\'ema \'electrique des switch en CMOS}
 \end{center}
 \end{figure}
+
+\clearpage
+
+Si les transistors MOS se comportent comme des r\'esistances en parall\`ele,
+il est possible de calculer $R_{ON} = R_{ON_{(P)}}//R_{ON_{(N)}}$.
+Les transistors on \'etait dimmensionner pour une $C_{ech} = 10 pF$
+\[
+  \tau = R_{ON} C \implies R_{ON} = \frac{\tau}{C} = \frac{1}{20\times10^{6}\times10\times10^{-12}} = 5 k \Omega
+\]
+
+
+
+\clearpage
 
 \textbf{V\'erification des performances par simulations}
 
@@ -181,8 +304,6 @@ On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'es co
   \caption{Sch\'ema \'electrique des switch en CMOS}
 \end{center}
 \end{figure}
-
-
 
 \clearpage
 
@@ -207,7 +328,7 @@ Effectuant la simulation :
 
 
 \clearpage
-\section{R\'ealisation d'un Amplificateur OTA \`a deux \'etages}
+\section{R\'ealisation d'un Amplificateur OTA \`a deux \'etages}\label{OTA_sect}
 
 \subsection{Cahier des charges}
 
@@ -438,7 +559,7 @@ un 0 ou un 1 logique.
 \subsection{Programmation et synth\`ese automatique du circuit}
 On utilise un code existant en Verilog\cite{Thermometer}
 Ce code permet de convertir les donn\'ees en code thermometrique en sortie des
-comparateurs vers un code binaire sur 6 bits (avec un pouvoir de bulles).
+comparateurs vers un code binaire sur 6 bits (avec un pouvoir de pr\'evention de bulles).
 
 \begin{lstlisting}[language=Verilog, belowskip=-0.5 \baselineskip]
 module thermo2bin (thermob, bin)
@@ -587,7 +708,7 @@ Ce projet fut \'egalement l'occasion de v\'eritablement prendre en main le logic
  de variables ajust\'ees, de sources de courant ou tension parfaites. Nous maîtrisons d\'esormais ce logiciel et sommes aptes \`a l'utiliser \`a
  des fins de recherche ou dans l'industrie.
 
-Nous sommes ravis d'avoir pu r\'efl\'echir par nous-même et mobiliser nos connaissances acquises dans plusieurs cours cette ann\'ee au service
+Nous sommes ravis d'avoir pu r\'efl\'echir par nous-m\^eme et mobiliser nos connaissances acquises dans plusieurs cours cette ann\'ee au service
 de ce projet. Il a eu un r\'eel impact sur notre maîtrise de Cadence et sur le d\'eroulement de la phase de conception d'un circuit \'electronique,
 en l'occurrence d'un comparateur Flash.
 
@@ -622,6 +743,10 @@ Nous remercions les professeurs encadrants de nous avoir transmis leurs connaiss
 \texttt{Zbigniew Jaworski, Warsaw University of Technology}\\
 \textit{Conference: 2016 MIXDES - 23rd International Conference "Mixed Design of Integrated Circuits and Systems"}\\
 \textbf{doi: 10.1109/MIXDES.2016.7529741}
+
+\bibitem{cours-conversion}
+\textit{La conversion analogique/num\'erique : Principe et architecture int\'egr\'es}\\
+\texttt{S.Bourdel, Institut Polytechnique de Grenoble - Phelma}
 
 \end{thebibliography}
 
