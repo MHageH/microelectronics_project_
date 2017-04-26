@@ -287,20 +287,37 @@ correspondante \`a la fr\'equence d'\'echantillonnage de $20 MHz$.
 
 Si les transistors MOS se comportent comme des r\'esistances en parall\`ele,
 il est possible de calculer $R_{ON} = R_{ON_{(P)}}//R_{ON_{(N)}}$.
-Les transistors on \'etait dimmensionner pour une $C_{ech} = 10 pF$
+Les transistors on \'etait dimmensionner pour une $C_{ech} = 14 pF$
 \[
-  \tau = R_{ON} C \implies R_{ON} = \frac{\tau}{C} = \frac{1}{20\times10^{6}\times10\times10^{-12}} = 5 k \Omega
+  \tau = R_{ON} C \implies R_{ON} = \frac{\tau}{C} = \frac{1}{100\times10^{6}\times14\times10^{-12}} = 714.28 \Omega
+\]
+Sachant que $\tau << \frac{1}{F_e} = \frac{1}{20\times10^6} s$.
+
+\[
+  R_{ON} = R_{ON_{(P)}}//R_{ON_{(N)}} \implies \frac{1}{R_{ON}} = \frac{1}{ R_{ON_{(P)}}} + \frac{1}{ R_{ON_{(N)}}}
 \]
 
+On prend $  R_{ON_{(P)}} =  R_{ON_{(N)}} \implies  R_{ON_{(P)}} = 2 R_{ON} = 1428 \Omega$
 
+Pour les 2 transistors :
+\[
+R_{ON_{(N)}} = \frac{1}{2k_n \frac{W}{L} (V_{GS} - V_{tn})} \phantom{2} et \phantom{2} R_{ON_{(P)}} = \frac{1}{2k_p \frac{W}{L} (V_{SG} - V_{tp})}
+\]
 
-\clearpage
+D'o\`u : (Pour $V_{e}$ d'entr\'ee $ = \frac{V_{dd}}{2})$
+\[
+\bigg(\frac{W}{L}\bigg)_{N} = \frac{1}{2k_n R_{ON_{(N)}}  (V_{GS} - V_{tn})} =\frac{1}{2k_n R_{ON_{(N)}}  (\frac{V_{DD}}{2} - V_{tn})} = 5.71
+\]
+
+\[
+\bigg(\frac{W}{L}\bigg)_{P} = \frac{1}{2k_p R_{ON_{(P)}}  (V_{SG} - V_{tp})} = \frac{1}{2k_p R_{ON_{(P)}}  (\frac{V_{DD}}{2} - V_{tp})} = 14.5
+\]
 
 \textbf{V\'erification des performances par simulations}
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[width=0.8\linewidth]{switchs_simu.png}
+  \includegraphics[width=0.9\linewidth]{switchs_simu.png}
   \caption{Sch\'ema \'electrique des switch en CMOS}
 \end{center}
 \end{figure}
@@ -333,9 +350,9 @@ Effectuant la simulation :
 \subsection{Cahier des charges}
 
 \textbf{Le cahier de charges n\'ecessite :}
-\begin{itemize} \itemsep -2pt
-  \item[-]
-  \item[-]
+\begin{itemize} \itemsep -4pt
+  \item[-] Un gain minimal pour une r\'esolution de 6 bits : $G(0) = 300$
+  \item[-] Dynamique en entr\'ee de $V_e \in [0.5, 2.5 V]$
 \end{itemize}
 
 \subsection{Calcul th\'eorique et dimensionnements}
@@ -346,7 +363,7 @@ Effectuant la simulation :
   \caption{Architecture de l'amplificateur \`a deux \'etages apr\`es dimensionnements}
 \end{center}
 \end{figure}
-
+ 
 \clearpage
 
 \subsection{Simulation et optimisation}
@@ -499,12 +516,12 @@ Pour une tension de mode commun en sortie $V_{SP}=V_{SN} = \frac{V_{dd}}{2}$,
 
 Finalement, les simulations pr\'esentent un comparateur qui est approximatif : la sortie en mode
 commun n'est jamais r\'eellement soit \`a 0 ou \`a 3.3 V. En effet, le z\'ero logique se situe autour de 1.65 V
-et le 1 logique varie entre 2.5 et 3 V. \textbf{\textcolor{red}{Sch\'ema ne correpsond pas \`a la description, simulation
-\`a refaire avec le bon dimensionnement du comporateur (dernier comp)}}
+et le 1 logique varie entre 2.5 et 3 V. \iffalse \textbf{\textcolor{red}{Sch\'ema ne correpsond pas \`a la description, simulation
+\`a refaire avec le bon dimensionnement du comporateur (dernier comp)}} \fi
 
 \begin{figure}[!htb]
       \centering
-      \includegraphics[width=0.8\linewidth]{sim_comp_before_SR_FF.jpg}
+      \includegraphics[width=0.8\linewidth]{simu_comp_pas_ameliore.png}
       \caption{Simulation avant l'ajout des buffers + bascules}
       \label{fig:sfigBSRFF}
 \end{figure}%
@@ -665,10 +682,6 @@ apparaissent et d\'egradent les niveaux de seuils.
 Les filtres ont en moyenne une fr\'equence de coupure de $\frac{1}{2 \pi R C}$ avec $C  = 90 \phantom{2} fF.$
 Pour pallier ce ph\'enom\`ene, nous avons plac\'e un suiveur parfait (vcvs) dans la bo\^ite de comparaison pour
 `` purifier '' les niveaux de seuils.
-
-\subsection{Etage de d\'ecodage}
-
-Mettre une bascule \`a la fin du comparateur pour bien synchro avec le d\'ecodeur.
 
 \clearpage
 
