@@ -69,26 +69,14 @@
 \maketitle
 \thispagestyle{empty}
 
-\renewcommand{\abstractname}{Abstrait(Pr\'emabule)}
+\renewcommand{\abstractname}{Pr\'emabule}
 
 \begin{abstract}
-Quisque hendrerit finibus lacus pulvinar semper.
-Donec rutrum lacinia tempus. Aenean ligula sapien, euismod vel arcu sit amet,
-molestie sollicitudin nisl. Pellentesque habitant morbi tristique senectus et netus et
-malesuada fames ac turpis egestas. Nullam ac ornare ante, efficitur rhoncus justo.
-Sed tristique lobortis nisl a gravida. Etiam id purus ut enim sagittis auctor id ac quam.
-Fusce vulputate nisi rutrum, aliquam neque et, auctor risus. Quisque commodo molestie felis,
-sed egestas sem. Sed euismod, turpis id dignissim malesuada, elit nulla auctor elit, nec hendrerit
-ipsum odio quis ex. Sed sollicitudin fringilla purus, et dignissim risus auctor eget. Etiam bibendum,
-nisi at posuere mattis, dui risus hendrerit sapien, vitae feugiat libero magna sollicitudin leo.
-
-\begin{center}
-  \textbf{\textcolor{red}{\'Elimine le lorem Ipsum apr\`es.}}
-\end{center}
-
+L'analyse et la conception des circuits int\'egr\'es constitue une \'etape primordiale pour notre sp\'ecialit\'e en mirco\'el\'ectronique. Le document pr\'esente l'\'etude et la simulation d\'etaill\'ee d'un convertisseur analogique/num\'erique CAN-FLASH en technologie CMOS \`a $0.35 \mu m$, de 6-bits de r\'esolution totale. Tout au long du rapport, on explique les diff\'rentes \'etapes suivies, en partant de la th\'eorie purement dite et en arrivant \`a la simulation du circuit entier.
+  
 \end{abstract}
 
-\vskip 7cm
+\vskip 9.5cm
 \begin{center} \textbf{Institut Polytechnique de Grenoble} \end{center}
 
 \clearpage
@@ -98,13 +86,11 @@ nisi at posuere mattis, dui risus hendrerit sapien, vitae feugiat libero magna s
 
 \section{Introduction}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt ut risus eget feugiat.
-Etiam eget viverra purus, sed iaculis dui. Duis vel urna tempus, placerat dolor ut, molestie erat.
-Praesent non dapibus tortor. Vestibulum facilisis mollis urna a fringilla. Nulla consequat lacus in dolor mattis varius.
-Praesent pharetra, mauris quis pretium tincidunt, tortor risus lobortis leo, sit amet mattis metus leo a dolor.
- Curabitur mi risus, lacinia a lacus ut, porta hendrerit quam. Ut dignissim fermentum bibendum.
- Mauris auctor tincidunt enim, nec auctor mi faucibus quis. Sed volutpat augue non ligula iaculis, pharetra elementum dolor accumsan.
- Duis semper semper erat id accumsan. Cras consectetur varius varius. Sed porta semper tellus, quis auctor lacus euismod cursus.
+Le march\'e des circuits int\'egr\'es ne cesse pas de s\'elargir : On se trouve devant une demande de plus en plus importante aux ing\'enieurs analogues, o\`u m\^eme analogues/mixtes. Notre formation nous porte donc \`a se familiariser d\`es \`a pr\'esent aux outils de conception analogiques. 
+
+Le projet que nous allons traiter comporte plusieurs \'el\'ements : La conception des circuits int\'egr\'es analogiques, la conversion analogique/num\'erique, ainsi qu'une partie enti\`ere en digital qui sera consacr\'ee \`a la conversion thermom\'etrique-binaire.
+
+On d\'ebutra par une analyse du cahier des charges requis par ce projet, une \'elaboration de la m\'ethodologie suivie pour le travail. Chaque partie comporte une analyse th\'eorique du fonctionnement souhait\'e des blocs du FLASH, et sa simulation au final, ainsi qu'une \'etape de simulation de pr\'e-dimensionnements si n\'ecessaire.
 
 \textit{Note :} Certaines illustrations sont extraites des projets.
 
@@ -121,7 +107,7 @@ Le projet n\'ecessite d'avoir :
 Notre m\'ethode de travail tout au long du projet consiste \`a :
 \begin{itemize}
   \item[-] D\'ecoupage du CAN-FLASH en \'el\'ements fonctionnels.
-  \item[-] Compr\'ehension du fonctionnement du bloc.
+  \item[-] Compr\'ehension du fonctionnement de chaque bloc.
   \item[-] Mise en place d'un sch\'ema en \'el\'ements ideaux et v\'erfication du fonctionnement attendu par simulations.
   \item[-] \'Etude th\'eorique pour le bloc r\'eel, dimensionnement des transistors et mise en validation par reproduction
   d'un sch\'ema et simulations.
@@ -287,11 +273,11 @@ correspondante \`a la fr\'equence d'\'echantillonnage de $20 MHz$.
 
 Si les transistors MOS se comportent comme des r\'esistances en parall\`ele,
 il est possible de calculer $R_{ON} = R_{ON_{(P)}}//R_{ON_{(N)}}$.
-Les transistors on \'etait dimmensionner pour une $C_{ech} = 14 pF$
+Les transistors on \'etait dimmensionn\'es pour une $C_{ech} = 7 pF$
 \[
-  \tau = R_{ON} C \implies R_{ON} = \frac{\tau}{C} = \frac{1}{100\times10^{6}\times14\times10^{-12}} = 714.28 \Omega
+  \tau = R_{ON} C \implies R_{ON} = \frac{\tau}{C} = \frac{1}{200\times10^{6}\times7\times10^{-12}} = 714.28 \Omega
 \]
-Sachant que $\tau << \frac{1}{F_e} = \frac{1}{20\times10^6} s$.
+Sachant que $\tau << \frac{1}{F_e} = \frac{1}{20\times10^6} s$, on prend $\tau = \frac{1}{200 \times 10^6} s$.
 
 \[
   R_{ON} = R_{ON_{(P)}}//R_{ON_{(N)}} \implies \frac{1}{R_{ON}} = \frac{1}{ R_{ON_{(P)}}} + \frac{1}{ R_{ON_{(N)}}}
@@ -306,18 +292,18 @@ R_{ON_{(N)}} = \frac{1}{2k_n \frac{W}{L} (V_{GS} - V_{tn})} \phantom{2} et \phan
 
 D'o\`u : (Pour $V_{e}$ d'entr\'ee $ = \frac{V_{dd}}{2})$
 \[
-\bigg(\frac{W}{L}\bigg)_{N} = \frac{1}{2k_n R_{ON_{(N)}}  (V_{GS} - V_{tn})} =\frac{1}{2k_n R_{ON_{(N)}}  (\frac{V_{DD}}{2} - V_{tn})} = 5.71
+\bigg(\frac{W}{L}\bigg)_{N} = \frac{1}{2k_n R_{ON_{(N)}}  (V_{GS} - V_{tn})} =\frac{1}{2k_n R_{ON_{(N)}}  (\frac{V_{DD}}{2} - V_{tn})} = 5.71 \implies (W)_{N} = 2 \mu m.
 \]
 
 \[
-\bigg(\frac{W}{L}\bigg)_{P} = \frac{1}{2k_p R_{ON_{(P)}}  (V_{SG} - V_{tp})} = \frac{1}{2k_p R_{ON_{(P)}}  (\frac{V_{DD}}{2} - V_{tp})} = 14.5
+\bigg(\frac{W}{L}\bigg)_{P} = \frac{1}{2k_p R_{ON_{(P)}}  (V_{SG} - V_{tp})} = \frac{1}{2k_p R_{ON_{(P)}}  (\frac{V_{DD}}{2} - V_{tp})} = 14.48 \implies (W)_{P} = 5 \mu m,  L_{P} = 0.35 \mu m.
 \]
 
 \textbf{V\'erification des performances par simulations}
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[width=0.9\linewidth]{switchs_simu.png}
+  \includegraphics[width=0.8\linewidth]{switchs_simu.png}
   \caption{Sch\'ema \'electrique des switch en CMOS}
 \end{center}
 \end{figure}
@@ -329,7 +315,7 @@ En rassemblant tous les \'el\'ements, on aboutit au sch\'ema suivant :
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[width=0.8\linewidth]{EB-Schematic.png}
+  \includegraphics[width=0.80\linewidth]{EB-Schematic.png}
   \caption{Sch\'ema de l'\'echantilloneur-bloqueur r\'eel}
 \end{center}
 \end{figure}
@@ -338,11 +324,13 @@ Effectuant la simulation :
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[width=0.8\linewidth]{simu_ech_bloqueur.png}
-  \caption{Sch\'ema de l'\'echantilloneur-bloqueur r\'eel}
+  \includegraphics[width=0.80\linewidth]{simu_ech_bloqueur_reel.png}
+  \caption{Simulation de l'\'echantilloneur-bloqueur r\'eel}
 \end{center}
 \end{figure}
 
+On rapp\`ele que la mise en place de tous le \'el\'ements n\'ecessite la pr\'esence d'un amplificateur
+r\'eel, fonctionnant comme suiveur. Cet \'el\'ement est expliqu\'e dans la section suivante (sect. \ref{OTA_sect}). On voit alors un comportement tr\`es similaire au celui de l'\'echantillonneur-bloqueur pr\'e-dimensionn\'e.
 
 \clearpage
 \section{R\'ealisation d'un Amplificateur OTA \`a deux \'etages}\label{OTA_sect}
@@ -353,9 +341,15 @@ Effectuant la simulation :
 \begin{itemize} \itemsep -4pt
   \item[-] Un gain minimal pour une r\'esolution de 6 bits : $G(0) = 300$
   \item[-] Dynamique en entr\'ee de $V_e \in [0.5, 2.5 V]$
+  \item[-] Puissance : $P = 2mW$
+  \item[-] Dynamique en sortie : $V_S \in [0.5, 3.5 V]$
+    \item[-] Fr\'equence maximale d'op\'eration $~ 180 MHz$
 \end{itemize}
 
 \subsection{Calcul th\'eorique et dimensionnements}
+
+Le calcul th\'eorique et la prise en compte du dimensionnement nous am\`ene au sch\'ema
+suivant :
 
 \begin{figure}[!htb]
 \begin{center}
@@ -364,6 +358,8 @@ Effectuant la simulation :
 \end{center}
 \end{figure}
 
+Les calculs sont d\'etaill\'es dans l'annexe 1 (sect. \ref{Annexe1}). 
+ 
 \clearpage
 
 \subsection{Simulation et optimisation}
@@ -372,6 +368,13 @@ Effectuant la simulation :
 \begin{center}
   \includegraphics[width=\linewidth]{reponse_ampli.png}
   \caption{Architecture de l'amplificateur \`a deux \'etages apr\`es dimensionnements}
+\end{center}
+\end{figure}
+
+\begin{figure}[!htb]
+\begin{center}
+  \includegraphics[width=\linewidth]{sim_EB_freq.png}
+  \caption{Simulation en \'etude AC  de l'amplificateur (comportement fr\'equentiel)}
 \end{center}
 \end{figure}
 
@@ -506,7 +509,7 @@ Pour une tension de mode commun en sortie $V_{SP}=V_{SN} = \frac{V_{dd}}{2}$,
 
 \begin{figure}[!htb]
       \centering
-      \includegraphics[width=0.9\linewidth]{comparateur_schema_cadence_.png}
+      \includegraphics[width=0.8\linewidth]{comparateur_schema_cadence_.png}
       \caption{Sch\'ema \'electrique}
       \label{fig:schcomp}
 \end{figure}%
@@ -683,6 +686,13 @@ Les filtres ont en moyenne une fr\'equence de coupure de $\frac{1}{2 \pi R C}$ a
 Pour pallier ce ph\'enom\`ene, nous avons plac\'e un suiveur parfait (vcvs) dans la bo\^ite de comparaison pour
 `` purifier '' les niveaux de seuils.
 
+\begin{figure}[!htb]
+      \centering
+      \includegraphics[width=\linewidth]{sim_general.png}
+      \caption{Simulation g\'en\'erale du CAN-FLASH pour un quart de signal sinuso\"idal}
+      \label{fig:schsimgenerale}
+\end{figure}%
+
 \clearpage
 
 \section{Layout}
@@ -746,7 +756,7 @@ Nous remercions les professeurs encadrants de nous avoir transmis leurs connaiss
 \end{itemize}
 
 La figure \textbf{\textcolor{red}{X}} repr\'esente l'amplificateur OTA \`a deux \'etages pris
-en consid\'eration, qui \'etait \'etudi\'e en cours de conception des circuits int\'egr\'es analogique.
+en consid\'eration, qui \'etait \'etudi\'e en cours de conception des circuits int\'egr\'es analogique\cite{TD4-AOP}.
 On reprend ce circuit en l'adoptant \`a nos besoins, selon le cahier de charge bien d\'efini.
 
 \begin{figure}[!htb]
@@ -957,6 +967,11 @@ au cahier des charges.
 \bibitem{cours-conversion}
 \textit{La conversion analogique/num\'erique : Principe et architecture int\'egr\'es}\\
 \texttt{S.Bourdel, Institut Polytechnique de Grenoble - Phelma}
+
+\bibitem{TD4-AOP}
+\textit{Etude d'un amplificateur CMOS \`a deux \'etages,}\\
+\textit{Conception des circuits int\'egr\'es analogiques}\\
+\texttt{Laurent Aubard, Institut Polytechnique de Grenoble - Phelma}
 
 \end{thebibliography}
 
