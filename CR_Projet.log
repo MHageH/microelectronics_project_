@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.12)  1 MAY 2017 00:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.12)  1 MAY 2017 00:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -712,7 +712,7 @@ Package pdftex.def Info: sim_general.png used on input line 691.
 File: layout_.png Graphic file (type png)
 
 <use layout_.png>
-Package pdftex.def Info: layout_.png used on input line 703.
+Package pdftex.def Info: layout_.png used on input line 708.
 (pdftex.def)             Requested size: 281.68513pt x 218.2956pt.
  [22
 
@@ -727,14 +727,14 @@ Missing character: There is no ® in font cmr10!
 
 ]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 752.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 759.
 
 <schema_composition_AOP_2_etages.png, id=390, 948.54375pt x 674.52pt>
 File: schema_composition_AOP_2_etages.png Graphic file (type png)
 
 <use schema_composition_AOP_2_etages.png>
 Package pdftex.def Info: schema_composition_AOP_2_etages.png used on input line
- 764.
+ 771.
 (pdftex.def)             Requested size: 281.68513pt x 200.30939pt.
  [25
 
@@ -743,26 +743,26 @@ Package pdftex.def Info: schema_composition_AOP_2_etages.png used on input line
 ] [27
 
 ] [28]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 979.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 986.
  [29
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 979.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 986.
  (./CR_Projet.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 979.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 979.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 986.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 986.
 Package rerunfilecheck Info: File `CR_Projet.out' has not changed.
 (rerunfilecheck)             Checksum: ADDF63A2D25ED830D63E2A34112AC0FC;2522.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 979.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 986.
  ) 
 Here is how much of TeX's memory you used:
- 9516 strings out of 495020
- 140835 string characters out of 6181324
+ 9515 strings out of 495020
+ 140827 string characters out of 6181324
  357031 words of memory out of 5000000
- 12448 multiletter control sequences out of 15000+600000
+ 12447 multiletter control sequences out of 15000+600000
  15725 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,8n,43p,542b,1436s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,43p,545b,1436s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -782,7 +782,7 @@ t/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmtt10.pfb>
-Output written on CR_Projet.pdf (29 pages, 3006293 bytes).
+Output written on CR_Projet.pdf (29 pages, 3006865 bytes).
 PDF statistics:
  515 PDF objects out of 1000 (max. 8388607)
  432 compressed objects within 5 object streams

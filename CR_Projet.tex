@@ -72,7 +72,7 @@
 \renewcommand{\abstractname}{Pr\'emabule}
 
 \begin{abstract}
-L'analyse et la conception des circuits int\'egr\'es constitue une \'etape primordiale pour notre sp\'ecialit\'e en mirco\'el\'ectronique. Le document pr\'esente l'\'etude et la simulation d\'etaill\'ee d'un convertisseur analogique/num\'erique CAN-FLASH en technologie CMOS \`a $0.35 \mu m$, de 6-bits de r\'esolution totale. Tout au long du rapport, on explique les diff\'rentes \'etapes suivies, en partant de la th\'eorie purement dite et en arrivant \`a la simulation du circuit entier.
+L'analyse et la conception des circuits int\'egr\'es constituent une \'etape primordiale pour notre sp\'ecialit\'e en mirco\'el\'ectronique. Le document pr\'esente l'\'etude et la simulation d\'etaill\'ee d'un convertisseur analogique/num\'erique CAN-FLASH en technologie CMOS \`a $0.35 \mu m$, de 6-bits de r\'esolution totale. Tout au long du rapport, on explique les diff\'erentes \'etapes suivies, en partant de la th\'eorie purement dite et en arrivant \`a la simulation du circuit entier.
   
 \end{abstract}
 
@@ -86,7 +86,7 @@ L'analyse et la conception des circuits int\'egr\'es constitue une \'etape primo
 
 \section{Introduction}
 
-Le march\'e des circuits int\'egr\'es ne cesse pas de s\'elargir : On se trouve devant une demande de plus en plus importante aux ing\'enieurs analogues, o\`u m\^eme analogues/mixtes. Notre formation nous porte donc \`a se familiariser d\`es \`a pr\'esent aux outils de conception analogiques. 
+Le march\'e des circuits int\'egr\'es ne cesse pas de s'\'elargir : On se trouve devant une demande de plus en plus importante aux ing\'enieurs analogues, o\`u m\^eme analogues/mixtes. Notre formation nous porte donc \`a se familiariser d\`es \`a pr\'esent aux outils de conception analogiques. 
 
 Le projet que nous allons traiter comporte plusieurs \'el\'ements : La conception des circuits int\'egr\'es analogiques, la conversion analogique/num\'erique, ainsi qu'une partie enti\`ere en digital qui sera consacr\'ee \`a la conversion thermom\'etrique-binaire.
 
@@ -698,11 +698,18 @@ Pour pallier ce ph\'enom\`ene, nous avons plac\'e un suiveur parfait (vcvs) dans
 \section{Layout}
 \subsection{Mise en oeuvre}
 
+Le layout constitue l'une des \'etapes n\'ecessaire dans la conception : elle permet de positionner
+les diff\'erents \'el\'ements du circuits pour la r\'ealisation des masques.
+Vue de la complexit\'e de la r\'ealisation d'un layout complet d'un tel projet, ainsi que les contraintes
+du temps impos\'ees, on ne se contente qu'\`a la r\'ealisation d'un simple switch en Layout.
+
 \begin{figure}[!htb]
       \centering
       \includegraphics[width=0.6\linewidth]{layout_.png}
       \caption{Mise en place du layout d'un switch}
 \end{figure}%
+
+On peut retrouver les \'el\'ements du switch : un Buffer et un inverseur, ainsi que les deux MOS. On utilise alors deux niveaux de m\'etalisation pour r\'ealiser le sh\'ema \'electrique total, ainsi que des Vias de connection.
 
 \clearpage
 
