@@ -65,7 +65,7 @@
 
 \title{\textbf{Projet de Conception en Micro\'electronique Analogique} \\ R\'ealisation d'un CAN FLASH 6 bits}
 \author{Ferdinand Goumis \\ Mohamed Hage Hassan \medskip\\\medskip \textbf{Encadrants} \medskip \\ Fatah Ellah Rarbi \\ Daniel Dzahini \\ Florent Cilici \\ Laurent Aubard}
-\date{24 Avril 2017}
+\date{1 Mai 2017}
 \maketitle
 \thispagestyle{empty}
 
@@ -363,7 +363,7 @@ Effectuant la simulation :
   \caption{Architecture de l'amplificateur \`a deux \'etages apr\`es dimensionnements}
 \end{center}
 \end{figure}
- 
+
 \clearpage
 
 \subsection{Simulation et optimisation}
@@ -735,6 +735,203 @@ Nous remercions les professeurs encadrants de nous avoir transmis leurs connaiss
 \clearpage
 
 \section{Annexes}
+\subsection{Calcul th\'eorique complet de l'amplificateur}\label{Annexe1}
+
+\textbf{Cahier des charges :} 
+\begin{itemize}\itemsep -4pt
+\item $V_{EMC} \in [0.5; 2.5V]$ en entr\'ee.
+\item gain en basse fr\'equence $G(0) \in [300;400]$
+\item $C_{S} = 6 pf$
+\item Dyanmique en sortie : $V_{S} \in [0.5; 3.5V]$ 
+\end{itemize}
+
+La figure \textbf{\textcolor{red}{X}} repr\'esente l'amplificateur OTA \`a deux \'etages pris
+en consid\'eration, qui \'etait \'etudi\'e en cours de conception des circuits int\'egr\'es analogique.
+On reprend ce circuit en l'adoptant \`a nos besoins, selon le cahier de charge bien d\'efini.
+
+\begin{figure}[!htb]
+      \centering
+      \includegraphics[width=0.6\linewidth]{schema_composition_AOP_2_etages.png}
+      \caption{Sch\'ema th\'eorique de l'amplificateur avec les diff\'erentes fonctionnalit\'es des \'etages}
+\end{figure}%
+
+Foncionnalit\'e des \'etages :
+\begin{itemize} \itemsep -2pt
+\item[-] Bloc Vert : Transistors $P_{1,2}$ constitue la paire diff\'erentielle.
+\item[-] Bloc Bleu : Couple NMOS $N_{1,2}$ fonctionnant en mirroir de courant (charge active).
+\item[-] Bloc Rouge : Couple PMOS $P_{3,5}$ ainsi qu'une r\'esistance, fonctionnant comme mirroir de courant
+  pour injecter un courant $I_{POL}$ dans $N_{3}$
+\end{itemize}
+
+\textbf{Calcul Th\'eorique}\\
+On commence par calculer les valeurs de $V_{pol}, I_{pol}$ (tension et courant de polarisation)
+ainsi que les valeurs aux noeuds A, B, C de fa\c con qu'on se limite aux cahier de charge ainsi d\'efini.
+
+\textbf{On fixe la polarisation des PMOS $P_{1,2}$ \`a $0.2 V$}\\
+On cherche alors $V_{pol}$ de sorte qu'elle v\'erifie le maximum de la dynamique en entr\'ee et respecte bien
+celle en sortie :
+
+\clearpage
+
+Au point A :
+$V_{A_{max}}$ qui correspond \`a $V_{E_{max}}$ (on consid\`ere aussi l'effet substrat sur $P_1$ et $P_2$)
+\[
+\bigg( V_{sg} - | V_{tp} | \bigg)_{P_{1,2}} = V_{A_{max}} - V_{E_{max}} - |V_{tp}| = V_{A_{max}} - V_{E_{max}} -
+\Big( | V_{tp_{0}} | + 0.2(V_{dd} - V_{A_{max}})\Big)
+\]
+\[
+1.2V_{A_{max}} - V_{E_{max}} - | V_{tp_{0}} | - 0.2 V_{dd} = 0.2
+\]
+\[
+V_{A_{max}} = \frac{1.6 + V_{E_{max}}}{1.2}
+\]
+Pour $V_{E_{max}} = 2.5$, on obtient $V_{A_{max}} = 3.41 V$
+
+Sachant que la tension $V_{A_{max}}$ doit satisfaire la limite de la zone active du PMOS $P_4$ pour qu'il
+fonctionne, on :
+\[
+\Big(V_{sd}\Big)_{P_{4}} = \Big(V_{sg} - | V_{tp_{0}} | \Big)_{P_4} 
+\]
+ce qui implique que : 
+\[
+V_{dd} - V_{A_{max}} = V_{dd} - V_{pol} - |V_{tp_0}|
+\]
+\[
+V_{A_{max}} = V_{pol} + |V_{tp_0}|
+\]
+\[
+V_{pol} = 3.41 - 0.73 = 2.68 V
+\]
+
+Cette valeur satisfait la condition sur $V_{E_{max}}$.
+
+Pour la dynamique en sortie, on a trouve que la dyamique de $V_S$ est fix\'ee par la LZA de $P_5$ :
+\[
+V_{dd} - V_{S_{max}} = V_{dd} - V_{pol} - |V_{tp_0}|
+\]
+
+On retrouve que :
+\[
+V_{S_{max}} = V_{pol} + 0.73 = 2.68+0.73 = 3.41 V \leq 3.5 V 
+\]
+$V_{pol}$ respecte la dynamique de sortie sur $V_{S_{max}}$. Par rapport \`a la condition minimale de la
+dynamique en sortie, on doit retrouver $V_C = V_B$ au points B et C.
+
+On doit avoir $V_{S_{min}} = V_C - V_{tn_0}$ pour que le NMOS $N_3$ reste en LZA.
+Soit :
+\[
+V_C = V_{S_{min}} + 0.57 = 1.07 V = V_B
+\]
+
+Il nous reste de v\'erifier que la limite inf\'erieure de la dynamique en $V_e$ est toujours respect\'ee,
+celci d\'ependante de la tension $V_{A_{min}}$ :
+
+\[
+\bigg( V_{sg} - | V_{tp} | \bigg)_{P_{1,2}} = V_{A_{min}} - V_{E_{min}} - |V_{tp}| = V_{A_{min}} - V_{E_{min}} -
+\Big( | V_{tp_{0}} | + 0.2(V_{dd} - V_{A_{min}})\Big) = 0.2V
+\]
+
+\[
+V_{A_{min}} = \frac{1.6 + V_{E_{min}}}{1.2} = 1.75 V
+\]
+
+\[
+\bigg( V_{sg} - | V_{tp} | \bigg)_{P_{1,2}} = 0.2V \leq V_{A_{min}} - V_C = 1.75 - 1.07 = 0.68 V
+\]
+
+On trouve bien qu'elle respecte la valeur minimale.
+
+\clearpage
+
+Avec la valeur des tensions $V_{A}, V_{B}, V_{C}, V_{pol}$, on peut remonter aux valeurs des courants dans
+les diff\'erentes \'etages de l'amplificateur.
+
+\textbf{Calcul de $I_1, I_2, I_{pol}$ :} \\
+Pour $I_1 = \frac{I_{pol}}{2} = \frac{I_{2}}{10}$ et $P = 2 mW$, on retrouve :
+\[
+2I_1 + I_2 = 0.6 mA
+\]
+$I_{pol}$ n'est pas pris en consid\'eration sachant qu'il peut \^etre commun aux autres cellules.
+
+On retrouve : $ I_2 = 500 \mu A, I_1 = 50 \mu A, I_{pol} = 100 \mu A$.
+
+La r\'esistance de polarisation peut-\^etre facilement retrouver : $R_{pol} = \frac{V_{pol}}{I_{pol}}$
+avec $V_{pol} = 2.68 V$, $ R_{pol} = 26.9 k \Omega$.
+
+\textbf{Dimensionnements des transistors} :\\
+Avec la d\'etermination des courants et tensions de polarisation, on peut retrouver les
+rapport $\Big( \frac{W}{L} \Big)$ des diff\'erents transistors :
+
+Rappelons que :
+\[
+\bigg( \frac{W}{L} \bigg)_{P} = \frac{I_{sd}}{K_p \big( V_{sg} - |V_{tp}| \big)^{2} }
+\phantom{3} et \phantom{3}
+\bigg( \frac{W}{L} \bigg)_{N} = \frac{I_{ds}}{K_N \big( V_{gs} - |V_{tn}| \big)^{2} } 
+\]
+\[
+\bigg( \frac{W}{L} \bigg)_{P_{1,2}} = 50
+\phantom{3}
+;
+\phantom{3}
+\bigg( \frac{W}{L} \bigg)_{P_{4}} = 277
+\phantom{3}
+;
+\phantom{3}
+\bigg( \frac{W}{L} \bigg)_{N_{1,2}} = 10
+\]
+Par rapport \`a $N_3$ et $N_2$ (sachant que $V_B = V_C$) :
+\[
+\bigg( \frac{W}{L} \bigg)_{N_{3}} = \frac{I_2}{I_1} \bigg( \frac{W}{L} \bigg)_{N_{2}}  = 100  
+\]
+
+Pour $P_5$, la condition sur le mirroir de courant ne ram\`ene \`a :
+\[
+\bigg( \frac{W}{L} \bigg)_{P_{5}} = \frac{I_2}{2 I_1} \bigg( \frac{W}{L} \bigg)_{P_{4}} = 220
+\]
+
+Si on fixe $L_N = 0.35 \mu m$ et $L_P = 0.7 \mu m$ pour les PMOS respectivement, on peut calculer les
+valeurs de $W$ de chaque TMOS :
+\[
+W_{N_1,N_2} = 3.5 \mu m, W_{N_3} = 35 \mu m, W_{P_1, P_2} = 35 \mu m, W_{P_4} = 193.9 \mu m, W_{P_5} = 969 \mu m
+\]
+
+On peut toujours v\'erifier que le gain qu'on cherche respecte bien $G(0)$ d\'efini en cahier de charge
+pour une r\'esolution de 6-bits.
+
+Le montage est form\'e de 2 \'etages:
+\[
+G_1 = - g_m (P_2).r_{ds}(P_2)//r_{ds}(N_2) = -g_m(P_2).\frac{r_{ds}(N_2)}{2}
+\]
+gain du premier,
+\[
+G_2 = - g_m (N_3).r_{ds}(N_3)//r_{ds}(P_5) = -g_m(N_3).\frac{r_{ds}(N_3)}{2}
+\]
+pour le deuxi\`eme.
+
+Sachant que :
+\[
+g_m(P_2) = \frac{2I_1}{V_{sg} - | V_{tp} | } = 0.5  mA/V
+\phantom{3}
+;
+\phantom{3}
+g_m(N_3) = \frac{2 I_2}{V_{gs} - V_{tn}} = 0.598 mA/V
+\phantom{3}
+;
+\phantom{3}
+\]
+
+\[
+\frac{r_{ds}(N_3)}{2} = \frac{L_{N_{3}}}{2.k_{en}.I_{2}} = 11.7 K\Omega
+\phantom{3}
+;
+\phantom{3}
+\frac{r_{ds}{P_2}}{2} = \frac{L_{P_{2}}}{2.k_{ep}.I_{1}} = 117 k\Omega
+\]
+
+On retrouve $G_0 = G_1 \times G_2 = 400, (G_0)_{db} = 52 db > 49.5 db$, ce qui correspond bien \`a la
+au cahier des charges.
+
+\textbf{\textcolor{red}{NE CORRESPOND PAS \`a la simulation (26 db ???)}}
 
 \clearpage
 

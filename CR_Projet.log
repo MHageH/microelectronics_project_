@@ -1,12 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.12)  25 APR 2017 09:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.12)  30 APR 2017 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**CR_Projet.tex
-(./CR_Projet.tex
-LaTeX2e <2014/05/01>
-Babel <3.9l> and hyphenation patterns for 2 languages loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+**\nonstopmode\input CR_Projet.tex
+(./CR_Projet.tex (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
@@ -431,14 +428,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] [3
 
 ]
-<Echantillonneur-bloqueur.jpg, id=193, 678.535pt x 511.9125pt>
+<Echantillonneur-bloqueur.jpg, id=199, 678.535pt x 511.9125pt>
 File: Echantillonneur-bloqueur.jpg Graphic file (type jpg)
 
 <use Echantillonneur-bloqueur.jpg>
 Package pdftex.def Info: Echantillonneur-bloqueur.jpg used on input line 142.
 (pdftex.def)             Requested size: 203.56207pt x 153.57494pt.
 
-<clocks_.png, id=194, 1210.5225pt x 700.6175pt>
+<clocks_.png, id=200, 1210.5225pt x 700.6175pt>
 File: clocks_.png Graphic file (type png)
  <use clocks_.png>
 Package pdftex.def Info: clocks_.png used on input line 154.
@@ -472,19 +469,19 @@ Underfull \hbox (badness 3735) in paragraph at lines 170--171
 [4
 
  <./Echantillonneur-bloqueur.jpg> <./clocks_.png>]
-<memoire_EB.png, id=201, 204.765pt x 132.495pt>
+<memoire_EB.png, id=207, 204.765pt x 132.495pt>
 File: memoire_EB.png Graphic file (type png)
  <use memoire_EB.png>
 Package pdftex.def Info: memoire_EB.png used on input line 177.
 (pdftex.def)             Requested size: 140.84256pt x 91.1386pt.
 
-<suiveur_EB.png, id=202, 275.0275pt x 120.45pt>
+<suiveur_EB.png, id=208, 275.0275pt x 120.45pt>
 File: suiveur_EB.png Graphic file (type png)
  <use suiveur_EB.png>
 Package pdftex.def Info: suiveur_EB.png used on input line 183.
 (pdftex.def)             Requested size: 140.84256pt x 61.68414pt.
 
-<Echantillonneur-bloqueur_ideal.png, id=204, 1071.00125pt x 700.6175pt>
+<Echantillonneur-bloqueur_ideal.png, id=210, 1071.00125pt x 700.6175pt>
 File: Echantillonneur-bloqueur_ideal.png Graphic file (type png)
 
 <use Echantillonneur-bloqueur_ideal.png>
@@ -494,14 +491,14 @@ Package pdftex.def Info: Echantillonneur-bloqueur_ideal.png used on input line
  [5
 
  <./memoire_EB.png> <./suiveur_EB.png> <./Echantillonneur-bloqueur_ideal.png>]
-<simu_ech_bloqueur.png, id=214, 1271.75125pt x 756.8275pt>
+<simu_ech_bloqueur.png, id=220, 1271.75125pt x 756.8275pt>
 File: simu_ech_bloqueur.png Graphic file (type png)
 
 <use simu_ech_bloqueur.png>
 Package pdftex.def Info: simu_ech_bloqueur.png used on input line 230.
 (pdftex.def)             Requested size: 375.57779pt x 223.50468pt.
 
-<rapport_gain_bloquage.png, id=215, 1044.90375pt x 622.325pt>
+<rapport_gain_bloquage.png, id=221, 1044.90375pt x 622.325pt>
 File: rapport_gain_bloquage.png Graphic file (type png)
 
 <use rapport_gain_bloquage.png>
@@ -509,20 +506,20 @@ Package pdftex.def Info: rapport_gain_bloquage.png used on input line 242.
 (pdftex.def)             Requested size: 375.57779pt x 223.68547pt.
  [6
 
- <./simu_ech_bloqueur.png> <./rapport_gain_bloquage.png>] <tgate_.png, id=222, 
+ <./simu_ech_bloqueur.png> <./rapport_gain_bloquage.png>] <tgate_.png, id=228, 
 224.84pt x 188.705pt>
 File: tgate_.png Graphic file (type png)
  <use tgate_.png>
 Package pdftex.def Info: tgate_.png used on input line 262.
 (pdftex.def)             Requested size: 164.31393pt x 137.91187pt.
 
-<var_ron.png, id=223, 410.53375pt x 252.945pt>
+<var_ron.png, id=229, 410.53375pt x 252.945pt>
 File: var_ron.png Graphic file (type png)
  <use var_ron.png>
 Package pdftex.def Info: var_ron.png used on input line 268.
 (pdftex.def)             Requested size: 211.26027pt x 130.16199pt.
 
-<switchs_.png, id=224, 1155.31625pt x 742.775pt>
+<switchs_.png, id=230, 1155.31625pt x 742.775pt>
 File: switchs_.png Graphic file (type png)
  <use switchs_.png>
 Package pdftex.def Info: switchs_.png used on input line 281.
@@ -530,7 +527,7 @@ Package pdftex.def Info: switchs_.png used on input line 281.
  [7
 
  <./tgate_.png> <./var_ron.png> <./switchs_.png>]
-<switchs_simu.png, id=233, 1266.7325pt x 731.73375pt>
+<switchs_simu.png, id=239, 1266.7325pt x 731.73375pt>
 File: switchs_simu.png Graphic file (type png)
  <use switchs_simu.png>
 Package pdftex.def Info: switchs_simu.png used on input line 320.
@@ -538,7 +535,7 @@ Package pdftex.def Info: switchs_simu.png used on input line 320.
 
 [8
 
- <./switchs_simu.png>] <EB-Schematic.png, id=241, 1201.48875pt x 738.76pt>
+ <./switchs_simu.png>] <EB-Schematic.png, id=247, 1201.48875pt x 738.76pt>
 File: EB-Schematic.png Graphic file (type png)
 
 <use EB-Schematic.png>
@@ -551,7 +548,7 @@ Package pdftex.def Info: simu_ech_bloqueur.png used on input line 341.
  [9
 
  <./EB-Schematic.png>]
-<amplificateur_.png, id=248, 1164.35pt x 732.7375pt>
+<amplificateur_.png, id=254, 1164.35pt x 732.7375pt>
 File: amplificateur_.png Graphic file (type png)
  <use amplificateur_.png>
 Package pdftex.def Info: amplificateur_.png used on input line 362.
@@ -560,24 +557,23 @@ Package pdftex.def Info: amplificateur_.png used on input line 362.
 [10
 
  <./amplificateur_.png>]
-<reponse_ampli.png, id=254, 1149.29375pt x 690.58pt>
+<reponse_ampli.png, id=260, 1149.29375pt x 690.58pt>
 File: reponse_ampli.png Graphic file (type png)
  <use reponse_ampli.png>
-Package pdftex.def Info: reponse_ampli.png used on input line 375.
+Package pdftex.def Info: reponse_ampli.png used on input line 373.
 (pdftex.def)             Requested size: 469.47046pt x 282.08589pt.
 
 [11
 
-
  <./reponse_ampli.png>]
-<comparateur_schema.jpg, id=260, 1275.76625pt x 717.68124pt>
+<comparateur_schema.jpg, id=266, 1275.76625pt x 717.68124pt>
 File: comparateur_schema.jpg Graphic file (type jpg)
 
 <use comparateur_schema.jpg>
-Package pdftex.def Info: comparateur_schema.jpg used on input line 390.
+Package pdftex.def Info: comparateur_schema.jpg used on input line 388.
 (pdftex.def)             Requested size: 484.79622pt x 272.7217pt.
 
-Overfull \hbox (15.32576pt too wide) in paragraph at lines 390--391
+Overfull \hbox (15.32576pt too wide) in paragraph at lines 388--389
  [] 
  []
 
@@ -604,36 +600,36 @@ Missing character: There is no µ in font cmr10!
 Missing character: There is no Â in font cmr10!
 Missing character: There is no µ in font cmr10!
  [14]
-<comparateur_schema_cadence_.png, id=275, 1253.68375pt x 741.77126pt>
+<comparateur_schema_cadence_.png, id=281, 1253.68375pt x 741.77126pt>
 File: comparateur_schema_cadence_.png Graphic file (type png)
 
 <use comparateur_schema_cadence_.png>
-Package pdftex.def Info: comparateur_schema_cadence_.png used on input line 511
+Package pdftex.def Info: comparateur_schema_cadence_.png used on input line 509
 .
 (pdftex.def)             Requested size: 422.52054pt x 249.99178pt.
 
-<simu_comp_pas_ameliore.png, id=276, 1269.74374pt x 722.7pt>
+<simu_comp_pas_ameliore.png, id=282, 1269.74374pt x 722.7pt>
 File: simu_comp_pas_ameliore.png Graphic file (type png)
 
 <use simu_comp_pas_ameliore.png>
-Package pdftex.def Info: simu_comp_pas_ameliore.png used on input line 526.
+Package pdftex.def Info: simu_comp_pas_ameliore.png used on input line 524.
 (pdftex.def)             Requested size: 375.57779pt x 213.76808pt.
 
-<comparateur_schema_cadence_SR.png, id=277, 1208.515pt x 729.72626pt>
+<comparateur_schema_cadence_SR.png, id=283, 1208.515pt x 729.72626pt>
 File: comparateur_schema_cadence_SR.png Graphic file (type png)
 
 <use comparateur_schema_cadence_SR.png>
 Package pdftex.def Info: comparateur_schema_cadence_SR.png used on input line 5
-36.
+34.
 (pdftex.def)             Requested size: 422.52054pt x 255.11852pt.
  [15
 
  <./comparateur_schema_cadence_.png> <./simu_comp_pas_ameliore.png>]
-<sim_comp_after_SR_FF.jpg, id=284, 1255.69125pt x 691.58376pt>
+<sim_comp_after_SR_FF.jpg, id=290, 1255.69125pt x 691.58376pt>
 File: sim_comp_after_SR_FF.jpg Graphic file (type jpg)
 
 <use sim_comp_after_SR_FF.jpg>
-Package pdftex.def Info: sim_comp_after_SR_FF.jpg used on input line 543.
+Package pdftex.def Info: sim_comp_after_SR_FF.jpg used on input line 541.
 (pdftex.def)             Requested size: 469.47046pt x 258.56236pt.
  [16 <./comparateur_schema_cadence_SR.png> <./sim_comp_after_SR_FF.jpg>]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -645,38 +641,38 @@ File: lstlang2.sty 2014/09/06 1.5e listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2014/09/06 1.5e listings language file
 )
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 594.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 592.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 594.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 595.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 592.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 593.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 595.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 593.
  [17
 
 ] [18]
-<test_thermo2bin.png, id=345, 1152.305pt x 460.72125pt>
+<test_thermo2bin.png, id=351, 1152.305pt x 460.72125pt>
 File: test_thermo2bin.png Graphic file (type png)
 
 <use test_thermo2bin.png>
-Package pdftex.def Info: test_thermo2bin.png used on input line 639.
+Package pdftex.def Info: test_thermo2bin.png used on input line 637.
 (pdftex.def)             Requested size: 469.47046pt x 187.70886pt.
  [19
 
  <./test_thermo2bin.png>]
-<schema_final.png, id=352, 799.98875pt x 752.8125pt>
+<schema_final.png, id=358, 799.98875pt x 752.8125pt>
 File: schema_final.png Graphic file (type png)
  <use schema_final.png>
-Package pdftex.def Info: schema_final.png used on input line 661.
+Package pdftex.def Info: schema_final.png used on input line 659.
 (pdftex.def)             Requested size: 399.9934pt x 376.40532pt.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
@@ -689,11 +685,11 @@ Missing character: There is no   in font cmr10!
  <./schema_final.png>]
 Missing character: There is no Â in font cmr10!
 Missing character: There is no   in font cmr10!
- [21] <layout_.png, id=362, 963.6pt x 746.79pt>
+ [21] <layout_.png, id=368, 963.6pt x 746.79pt>
 File: layout_.png Graphic file (type png)
 
 <use layout_.png>
-Package pdftex.def Info: layout_.png used on input line 695.
+Package pdftex.def Info: layout_.png used on input line 693.
 (pdftex.def)             Requested size: 281.68513pt x 218.2956pt.
  [22
 
@@ -706,29 +702,44 @@ Missing character: There is no ® in font cmr10!
 
 ] [24
 
-] [25
+]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 742.
+
+<schema_composition_AOP_2_etages.png, id=382, 948.54375pt x 674.52pt>
+File: schema_composition_AOP_2_etages.png Graphic file (type png)
+
+<use schema_composition_AOP_2_etages.png>
+Package pdftex.def Info: schema_composition_AOP_2_etages.png used on input line
+ 754.
+(pdftex.def)             Requested size: 281.68513pt x 200.30939pt.
+ [25
+
+ <./schema_composition_AOP_2_etages.png>] [26
+
+] [27
+
+] [28]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 964.
+ [29
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 769.
- [26
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 769.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 964.
  (./CR_Projet.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 769.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 769.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 964.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 964.
 Package rerunfilecheck Info: File `CR_Projet.out' has not changed.
-(rerunfilecheck)             Checksum: F1410588DA26D6DE97DBA15CB50FFD90;2417.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 769.
+(rerunfilecheck)             Checksum: 3D751E1D382D88DA35B54A55F5279F04;2522.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 964.
  ) 
 Here is how much of TeX's memory you used:
- 9480 strings out of 495020
- 140092 string characters out of 6181324
+ 9495 strings out of 495020
+ 140415 string characters out of 6181324
  357031 words of memory out of 5000000
- 12424 multiletter control sequences out of 15000+600000
+ 12433 multiletter control sequences out of 15000+600000
  15725 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,8n,43p,269b,1436s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,43p,288b,1436s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -748,10 +759,10 @@ t/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmtt10.pfb>
-Output written on CR_Projet.pdf (26 pages, 2490703 bytes).
+Output written on CR_Projet.pdf (29 pages, 2543483 bytes).
 PDF statistics:
- 483 PDF objects out of 1000 (max. 8388607)
- 408 compressed objects within 5 object streams
- 125 named destinations out of 1000 (max. 500000)
- 375 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 505 PDF objects out of 1000 (max. 8388607)
+ 425 compressed objects within 5 object streams
+ 130 named destinations out of 1000 (max. 500000)
+ 388 words of extra memory for PDF output out of 10000 (max. 10000000)
 
