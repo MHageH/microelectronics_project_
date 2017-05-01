@@ -86,13 +86,13 @@ L'analyse et la conception des circuits int\'egr\'es constituent une \'etape pri
 
 \section{Introduction}
 
-Le march\'e des circuits int\'egr\'es ne cesse pas de s'\'elargir : On se trouve devant une demande de plus en plus importante aux ing\'enieurs analogues, o\`u m\^eme analogues/mixtes. Notre formation nous porte donc \`a se familiariser d\`es \`a pr\'esent aux outils de conception analogiques. 
+Le march\'e des circuits int\'egr\'es ne cesse pas de s'\'elargir : On se trouve devant une demande de plus en plus importante aux ing\'enieurs analogues, ou m\^eme analogues/mixtes. Notre formation nous porte donc \`a se familiariser d\`es \`a pr\'esent aux outils de conception analogiques. 
 
 Le projet que nous allons traiter comporte plusieurs \'el\'ements : La conception des circuits int\'egr\'es analogiques, la conversion analogique/num\'erique, ainsi qu'une partie enti\`ere en digital qui sera consacr\'ee \`a la conversion thermom\'etrique-binaire.
 
-On d\'ebutra par une analyse du cahier des charges requis par ce projet, une \'elaboration de la m\'ethodologie suivie pour le travail. Chaque partie comporte une analyse th\'eorique du fonctionnement souhait\'e des blocs du FLASH, et sa simulation au final, ainsi qu'une \'etape de simulation de pr\'e-dimensionnements si n\'ecessaire.
+On d\'ebutra par une analyse du cahier des charges requis par ce projet et une \'elaboration de la m\'ethodologie suivie pour le travail. Chaque partie comporte une analyse th\'eorique du fonctionnement souhait\'e des blocs du FLASH, et sa simulation au final, ainsi qu'une \'etape de simulation de pr\'e-dimensionnements si n\'ecessaire.
 
-\textit{Note :} Certaines illustrations sont extraites des projets.
+\textit{Note :} Certaines illustrations sont extraites du sujet des projets\cite{Projets-Analog}.
 
 \section{Cahier des charges}
 Le projet n\'ecessite d'avoir :
@@ -100,7 +100,7 @@ Le projet n\'ecessite d'avoir :
 \item[-] Une r\'esolution du CAN-FLASH de 6 bits, ce qui implique l'utilisation de $2^{6} -1 = 63 $ comparateurs.
 \item[-] Dynamique du signal en entr\'ee $V_e \in [0.5 V,\phantom{2} 2.5V]$
 \item[-] Fr\'equence d'\'echantillonnage : $f_h = 20 MHz $
-\item[-] \textbf{\textcolor{red}{Plus..}}
+\item[-] Une grande fr\'equence d'op\'eration (en MHz).
 \end{itemize}
 
 \section{M\'ethodologie de travail}
@@ -111,8 +111,10 @@ Notre m\'ethode de travail tout au long du projet consiste \`a :
   \item[-] Mise en place d'un sch\'ema en \'el\'ements ideaux et v\'erfication du fonctionnement attendu par simulations.
   \item[-] \'Etude th\'eorique pour le bloc r\'eel, dimensionnement des transistors et mise en validation par reproduction
   d'un sch\'ema et simulations.
-  \item[-] Mise en place d'un sch\'ema global pour sa validation en simulation (Echantillonneur-Bloqueur par example).
+  \item[-] Mise en place d'un sch\'ema global pour sa validation en simulation (\'Echantillonneur-Bloqueur par example).
 \end{itemize}
+
+
 
 \clearpage
 
@@ -132,7 +134,7 @@ On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'e com
 
 \subsection{Principe de fonctionnement}
 
-On rappele qu'on a introduit un d\'ecalage entre les 2 horloges ($\Phi_1$ et $\Phi_2$) de 5 ns, sachant que la
+On rappelle qu'on a introduit un d\'ecalage entre les 2 horloges ($\Phi_1$ et $\Phi_2$) de 5 ns, sachant que la
 fr\'equence d'\'echantillonnage est de $20 MHz$.
 
 \begin{wrapfigure}{r}{0.5\textwidth}
@@ -153,7 +155,7 @@ L'echantillonneur bloqueur fonctionne en 2 r\'egime diff\'erents:
 Gr\^ace \`a la phase m\'emoire, l'\'echantillonneur permet de garder un niveau de tension
 fixe pour la conversion qui suit.
 
-Les sch\'ema \'electriques correspondant aux phases sont repr\'esent\'es par la figure \textbf{\textcolor{red}{X}}.
+Les sch\'ema \'electriques correspondant aux phases sont repr\'esent\'es par la figure \ref{fig:figEBfonct}.
 
 \clearpage
 
@@ -203,13 +205,13 @@ dans la section \ref{OTA_sect}.
 
 \clearpage
 
-On configure les horologes avec le d\'ecalage pr\'evu, et on choisi d'effectuer
+On configure les horloges avec le d\'ecalage pr\'evu, et on choisi d'effectuer
 une analyse transitoire pour un signal d'entr\'ee sinuso\"idal de fr\'equence
 $f = 1 MHz$ et de variation $V_e \in [-3, 3\phantom{1}V]$, la plage de variation
 de 0.5 \`a 2.5 V n'est pas prise en consid\'eration pour le moment.
 
 En g\'en\'eral, toute les simulations effectu\'ees pendant le project sont en analyse
-transitoire, avec une dur\'ee de $1 \mu s$
+transitoire, avec une dur\'ee de $1 \mu s$.
 
 \begin{figure}[!htb]
 \begin{center}
@@ -219,13 +221,13 @@ transitoire, avec une dur\'ee de $1 \mu s$
 \end{figure}
 
 Cette simulation prend en charge une variation d'un param\`etre ``gain'' de l'amplificateur
-pour observer le chagement de niveau de tension en sortie du signal echantillonn\'e
+pour observer le chagement de niveau de tension en sortie du signal \'echantillonn\'e
 en comparaison avec celui d'entr\'ee. On trouve qu'on a une meilleur approximation pour une
-valeur de gain assez \'el\'ev\'ee.
+valeur de gain de l'amplificateur assez \'el\'ev\'ee.
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[width=0.8\linewidth]{rapport_gain_bloquage.png}
+  \includegraphics[width=0.76\linewidth]{rapport_gain_bloquage.png}
   \caption{Rapport gain-bloquage au niveau de l'\'echantilloneur-bloqueur id\'eal}
 \end{center}
 \end{figure}
@@ -259,15 +261,18 @@ de type PMOS et NMOS (TGATE).
   \label{fig:figswitchth}
 \end{figure}
 
-Ces switch seront dimmensionn\'es pour respect\'e le temps de charge de C
-correspondante \`a la fr\'equence d'\'echantillonnage de $20 MHz$.
+Ces switchs seront dimmensionn\'es pour respect\'e le temps de charge de C
+correspondante \`a la fr\'equence d'\'echantillonnage de $20 MHz$. On choisi alors
+une constante de temps $\tau$ assez r\'eduite.
 
 \begin{figure}[!htb]
 \begin{center}
   \includegraphics[width=0.8\linewidth]{switchs_.png}
-  \caption{Sch\'ema \'electrique des switch en CMOS}
+  \caption{Sch\'ema \'electrique des switchs en CMOS}
 \end{center}
 \end{figure}
+
+
 
 \clearpage
 
@@ -290,7 +295,7 @@ Pour les 2 transistors :
 R_{ON_{(N)}} = \frac{1}{2k_n \frac{W}{L} (V_{GS} - V_{tn})} \phantom{2} et \phantom{2} R_{ON_{(P)}} = \frac{1}{2k_p \frac{W}{L} (V_{SG} - V_{tp})}
 \]
 
-D'o\`u : (Pour $V_{e}$ d'entr\'ee $ = \frac{V_{dd}}{2})$
+D'o\`u : (Pour $V_{e}$ d'entr\'ee $ = \frac{V_{dd}}{2}$, on se place au milieu de la dynamique (fig.\ref{fig:sfigron}))
 \[
 \bigg(\frac{W}{L}\bigg)_{N} = \frac{1}{2k_n R_{ON_{(N)}}  (V_{GS} - V_{tn})} =\frac{1}{2k_n R_{ON_{(N)}}  (\frac{V_{DD}}{2} - V_{tn})} = 5.71 \implies (W)_{N} = 2 \mu m.
 \]
@@ -304,9 +309,11 @@ D'o\`u : (Pour $V_{e}$ d'entr\'ee $ = \frac{V_{dd}}{2})$
 \begin{figure}[!htb]
 \begin{center}
   \includegraphics[width=0.8\linewidth]{switchs_simu.png}
-  \caption{Sch\'ema \'electrique des switch en CMOS}
+  \caption{Simulation des switchs}
 \end{center}
 \end{figure}
+
+La commutation des switchs est assez rapide par rapport \`a la fr\'equence du signal d'entr\'ee.
 
 \clearpage
 
@@ -329,8 +336,8 @@ Effectuant la simulation :
 \end{center}
 \end{figure}
 
-On rapp\`ele que la mise en place de tous le \'el\'ements n\'ecessite la pr\'esence d'un amplificateur
-r\'eel, fonctionnant comme suiveur. Cet \'el\'ement est expliqu\'e dans la section suivante (sect. \ref{OTA_sect}). On voit alors un comportement tr\`es similaire au celui de l'\'echantillonneur-bloqueur pr\'e-dimensionn\'e.
+On rappelle que la mise en place de tous le \'el\'ements n\'ecessite la pr\'esence d'un amplificateur
+r\'eel, fonctionnant comme suiveur. Cet \'el\'ement est expliqu\'e dans la section suivante (sect. \ref{OTA_sect}). On voit alors un comportement tr\`es similaire au celui de l'\'echantillonneur-bloqueur pr\'e-dimensionn\'e, avec un gain pr\'evu, pour une dynamique d\'entr\'ee de $V_e \in [0.5; 2.5 V] $.
 
 \clearpage
 \section{R\'ealisation d'un Amplificateur OTA \`a deux \'etages}\label{OTA_sect}
@@ -358,7 +365,7 @@ suivant :
 \end{center}
 \end{figure}
 
-Les calculs sont d\'etaill\'es dans l'annexe 1 (sect. \ref{Annexe1}). 
+Les calculs, ainsi que le principe de fonctionnement, sont d\'etaill\'es dans l'annexe 1 (sect. \ref{Annexe1}). 
  
 \clearpage
 
@@ -366,18 +373,25 @@ Les calculs sont d\'etaill\'es dans l'annexe 1 (sect. \ref{Annexe1}).
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[width=\linewidth]{reponse_ampli.png}
-  \caption{Architecture de l'amplificateur \`a deux \'etages apr\`es dimensionnements}
+  \includegraphics[width=0.85\linewidth]{reponse_ampli.png}
+  \caption{Simulation de l'amplificateur en r\'egime transitoire}
+  \label{fig:figSimAmp}
 \end{center}
 \end{figure}
+
+La figure \ref{fig:figSimAmp} montre la simulation de l'amplificateur tout seul, avec une entr\'ee
+sinuso\"idale. On trouve alors un d\'ephasage entre l'entr\'ee et la sortie par rapports aux
+caract\'eristiques choisies.
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[width=\linewidth]{sim_EB_freq.png}
+  \includegraphics[width=0.85\linewidth]{sim_EB_freq.png}
   \caption{Simulation en \'etude AC  de l'amplificateur (comportement fr\'equentiel)}
+  \label{fig:figSimAmpAC}
 \end{center}
 \end{figure}
 
+La simulation AC montre que l'amplificateur pr\'esente un comportement assimilable \`a un filtre passe-bas, \`a une fr\'equence de coupure autour de 10 MHz, avec une marge de phase de -60 degr\'ees autour de cettre fr\'equence. L'att\'enuation maximale de (-26 dB) est atteinte \`a 180 MHz.
 
 \clearpage
 
@@ -390,11 +404,12 @@ notre signal \`a chaque front sur un cycle d'horloge commune \`a tous les blocs.
 \begin{center}
   \includegraphics[scale=0.38]{comparateur_schema.jpg}
   \caption{Architecture des comparateurs synchronis\'es par horloge avec une paire crois\'ee}
+  \label{fig:figArchComp}
 \end{center}
 \end{figure}
 
 La structure utilis\'ee pour ce comparateur et bri\`evement d\'ecrite dans le sujet, et illustr\'ee par
-la figure X, utilise un courant provenant d'un miroir de courant (partie gauche de la structure).
+la figure \ref{fig:figArchComp}, utilise un courant provenant d'un miroir de courant (partie gauche de la structure).
 La propri\'et\'e comparatrice est effectu\'ee par la paire diff\'erentielle $N_1$/$N_2$ Ensuite, la partie de droite
 ($P_1$,$P_2$ et $N_3$,$N_4$,$N_5$,$N_6$) fait basculer le comparateur soit en satur\'e (sortie de 3.3 V)
 ou \`a la masse \`a travers le transistor $N_6$ qui est alors passant.
@@ -486,6 +501,12 @@ I_{N_8} = \frac {V_B C_B}{\frac{1}{4} T_H} = 2 µA
 \textbf{\textcolor{red}{Mettre les simulations}}
 \fi
 
+\textit{Note} : On rappelle que pendant cette phase, le couple des PMOS $P_{1,2}$ du comparateur fonctionne comme une imp\'edance diff\'erentielle n\'egative\cite{Razavi-Data-Conversion}. On retrouve que si on consi\`ere cette branche seule, on a :
+\[
+\frac{V}{I}= -2 \frac{1}{g_m_{(P_{1,2})}} = -2 R_{ON}
+\]
+
+
 \subsubsection{Phase de m\'emorisation (niveau d'horloge haut)}
 
 Afin que la chute de tension dans le transistor $N_6$  \`a l'\'etat ON soit de l'ordre de $0,5 V$ lorsque $H=1$
@@ -505,6 +526,9 @@ Pour une tension de mode commun en sortie $V_{SP}=V_{SN} = \frac{V_{dd}}{2}$,
   \bigg(\frac{W}{L} \bigg)_{N_{4,5}} = 0.70
 \]
 
+Le dimensionnement des transistors nous am\`ene au sch\'ema de la fig. \ref{fig:schcomp}.
+
+
 \clearpage
 
 \begin{figure}[!htb]
@@ -518,8 +542,8 @@ Pour une tension de mode commun en sortie $V_{SP}=V_{SN} = \frac{V_{dd}}{2}$,
 \subsection{Simulations/Optimisations}
 
 Finalement, les simulations pr\'esentent un comparateur qui est approximatif : la sortie en mode
-commun n'est jamais r\'eellement soit \`a 0 ou \`a 3.3 V. En effet, le z\'ero logique se situe autour de 1.65 V
-et le 1 logique varie entre 2.5 et 3 V. \iffalse \textbf{\textcolor{red}{Sch\'ema ne correpsond pas \`a la description, simulation
+commun n'est jamais r\'eellement soit \`a 0 ou \`a 3.3 V. En effet, le z\'ero logique se situe autour de 0 et 1 V
+et le 1 logique varie entre 2.5 et 3.3 V. \iffalse \textbf{\textcolor{red}{Sch\'ema ne correpsond pas \`a la description, simulation
 \`a refaire avec le bon dimensionnement du comporateur (dernier comp)}} \fi
 
 \begin{figure}[!htb]
@@ -529,8 +553,7 @@ et le 1 logique varie entre 2.5 et 3 V. \iffalse \textbf{\textcolor{red}{Sch\'em
       \label{fig:sfigBSRFF}
 \end{figure}%
 
-Nous avons donc rajout\'e des inverseurs et une Bascule SR (en 2 Nandes interconnect\'ees) en sortie afin de m\'emoriser
-un 0 ou un 1 logique.
+Nous avons donc rajout\'e des inverseurs et une Bascule SR (en 2 Nandes interconnect\'ees) en sortie afin de m\'emoriser un 0 ou un 1 logique. Ces \'el\'ements sert \`a garder un niveau stable pendant la commutation de l'horloge.
 
 \begin{figure}[!htb]
       \centering
@@ -577,7 +600,7 @@ un 0 ou un 1 logique.
 
 \section{R\'ealisation du d\'ecodeur en Verilog}
 \subsection{Programmation et synth\`ese automatique du circuit}
-On utilise un code existant en Verilog\cite{Thermometer}
+On utilise un code existant en Verilog\cite{Thermometer}.
 Ce code permet de convertir les donn\'ees en code thermometrique en sortie des
 comparateurs vers un code binaire sur 6 bits (avec un pouvoir de pr\'evention de bulles).
 
@@ -626,14 +649,70 @@ endmodule
 \subsubsection{Fonctionnement}
 
 Ce module fonctionne du m\^eme principe de la lecture humaine : On essaye de lire le plus
-haut '1'. Ce bout de code \'etait optimis\'e pour qu'il fonctionne en 2 parties
+haut '1'. Ce bout de code \'etait optimis\'e pour qu'il fonctionne en 2 parties pour optimiser
+le chemin critique r\'esultant du circuit en synth\`ese. 
 
-\textbf{\textcolor{red}{+explications..\cite{Thermometer}}}
+La lecture se fait dans les boucles ``for'', o\`u on cherche le plus grand '1'.
+\begin{lstlisting}[language=Verilog, belowskip=-2 \baselineskip]
+ for(i=1; i <= 32; i=i+1)
+    if (thermo[i-1] = 1'b1) bin1 = i;
+\end{lstlisting}
+Pour le premier segment, et
+\begin{lstlisting}[language=Verilog, belowskip=-2 \baselineskip]
+  for(j=1; j<=31; j=j+1)
+    if(thermo[k+31] == 1'b1) bin2 = j;
+\end{lstlisting}
+pour le deuxi\`eme.
+
+La d\'ecision se prend finalement sur :
+\begin{lstlisting}[language=Verilog, belowskip=-2 \baselineskip]
+if (thermo[31] == 1'b1)
+  bin = bin2 + 32;
+else
+bin = bin1;
+\end{lstlisting}
+O\`u on ajoute 32 \`a la valeur finale si on d\'etecte le 1 dans le segment LSB (le deuxi\`eme),
+et on prend la valeur du bin1 directement sinon (segment MSB).
 
 \subsubsection{Synth\`ese}
 
+Ce code \'etait v\'erifi\'e et simul\'e sous ModelSim, avec le test bench en Verilog visulis\'e ci-dessous. Pour faciliter son int\'egration sous Cadence, on lance l'outil design precision, et on le configure pour la technologie CMOS $0.35 \mu m$.
+
+\begin{lstlisting}[language=Verilog, belowskip=-2 \baselineskip]
+module thermo2bin_tb;
+  reg [62:0] thermob;
+  wire [5:0] bin;
+	
+  thermo2bin DUT (
+    .thermob(thermob),
+    .bin(bin)
+   );
+  initial begin
+    #100
+    thermob = 63'b000000000000000000000011111111111111111111111111111111111111111;
+    #100
+    thermob = 63'b000000000000000111111111111100111111111111111111111111111111111;
+    #100
+    thermob = 63'b000000000000000000000000000000000000000000000000000000000000000;
+    #100
+    thermob = 63'b000000000000000000000000000000000000000000000000000000000000001;
+    #100
+    thermob = 63'b000000000000000000000000000000000000000000000000000000000000100;	
+    #100
+    thermob = 63'b000000000000000000000000000000000000000000000000000000000000110;
+    #100
+    thermob = 63'b000000000000000000000000000000000000000000000000000000000000111;
+    #100
+    $finish;
+  end
+endmodule
+\end{lstlisting}
+
 \clearpage
 \subsection{Simulations}
+
+La v\'erification du comportement du code \'etait r\'ealis\'ee sous ModelSim, mais il fallait une
+autre simulation sous Cadence :
 
 \begin{figure}[!htb]
       \centering
@@ -641,33 +720,43 @@ haut '1'. Ce bout de code \'etait optimis\'e pour qu'il fonctionne en 2 parties
       \caption{Placement d'un band de test pour le code Verilog apr\`es synth\`ese.}
 \end{figure}%
 
+Le bande de test passe les bits de 0 \`a 40 en 1 logique, puis fixe le reste \`a 0. La figure
+\ref{fig:simT2B} montre les r\'esultats de la simulation :
+
+\begin{figure}[!htb]
+      \centering
+      \includegraphics[width=\linewidth]{sim_thermo2bin.png}
+      \caption{Simulation d'un code thermom\'etrique pour sa conversion en binaire}
+      \label{fig:simT2B}
+\end{figure}%
+
+Sachant que le code bin5 est le MSB, bin0 le LSB, on retrouve 101001 ce qui est \'equivalent \`a
+l'entr\'ee 41 en code thermom\'etrique.
+
 \clearpage
 
 
 \section{Sch\'ema Global}
 \subsection{Mise en place des \'el\'ements du montage final}
 La mise en oeuvre du sch\'ema final se fait par le placement de l'\'echantillonneur bloqueur
-ainsi que les 63 comparateurs et le pont de r\'esistance pour la cr\'eation des seuils.
+ainsi que les 63 comparateurs et le pont de r\'esistances pour la cr\'eation des seuils.
 
-En soi, le sch\'ema est celui de la figure X :
-
-\iffalse
-\begin{center}
-\textbf{\textcolor{red}{Sch\'ema du l'\'echantillonneur-Bloqueur + CAN-FLASH \`a faire}}.\\
-\end{center}
-\fi
+En soi, le sch\'ema est celui de la figure \ref{fig:schemaGlobal} :
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[scale=0.50]{schema_final.png}
+  \includegraphics[scale=0.60]{schema_final.png}
   \caption{"Sch\'ema global du CAN-FLASH"}
+  \label{fig:schemaGlobal}
 \end{center}
 \end{figure}
 
 Lors de cette \'etape, nous avons utilis\'e un bloc ``Comparateur + r\'esistance'' que nous avons boucl\'e
 sur lui-m\^eme 62 fois dans le but d'\'eviter le sch\'ema \`a rallonge (avec 63 bo\^ites diff\'erentes…).
+
 L'entr\'ee du premier bloc de comparaison (comparateur et seuil gr\^ace \`a la r\'esistance) prend en compte
 le signal en sortie de l'\'echantillonneur bloqueur ainsi que le niveau de r\'ef\'erence le plus haut.
+
 Le second \'etage de comparaison a pour entr\'ee la sortie de premier \'etage ainsi que le signal \'echantillonn\'e.
 Cet \'etage compare donc le signal \'echantillonn\'e et le seuil num\'ero 2 (deux r\'esistances \'egales en s\'erie).
 
@@ -677,7 +766,7 @@ de 64 r\'esistances en s\'erie.
 \subsection{Simulations}
 
 La simulation globale de cet \'etage est tr\`es int\'eressante. En effet, les courbes pr\'esentent des valeurs de
-seuils tr\`es diff\'erentes de celles \textcolor{red}{pressenties} par le calcul (niveaux nets cr\'es par des r\'esistances en s\'erie).
+seuils tr\`es diff\'erentes de celles pressenties par le calcul (niveaux nets cr\'es par des r\'esistances en s\'erie).
 En fait, les entr\'ees des comparateurs sont des gros transistors NMOS. Par cons\'equent, leurs capacit\'es d'entr\'ee
 sont tr\`es importantes ; une fois reli\'ees \`a des r\'esistances (pont de r\'esistances), des effets de filtrages
 apparaissent et d\'egradent les niveaux de seuils.
@@ -693,6 +782,8 @@ Pour pallier ce ph\'enom\`ene, nous avons plac\'e un suiveur parfait (vcvs) dans
       \label{fig:schsimgenerale}
 \end{figure}%
 
+Dans la simulation g\'en\'erale, le bin5 repr\'esente le bit MSB en sortie du CAN-FLASH 6-bits, bin0 celui du LSB. On peut voir leur comportement incr\'emental pour un quart d'onde en entr\'ee. 
+
 \clearpage
 
 \section{Layout}
@@ -705,11 +796,13 @@ du temps impos\'ees, on ne se contente qu'\`a la r\'ealisation d'un simple switc
 
 \begin{figure}[!htb]
       \centering
-      \includegraphics[width=0.6\linewidth]{layout_.png}
+      \includegraphics[width=\linewidth]{layout_.png}
       \caption{Mise en place du layout d'un switch}
 \end{figure}%
 
-On peut retrouver les \'el\'ements du switch : un Buffer et un inverseur, ainsi que les deux MOS. On utilise alors deux niveaux de m\'etalisation pour r\'ealiser le sh\'ema \'electrique total, ainsi que des Vias de connection.
+On peut retrouver les \'el\'ements du switch : un buffer et un inverseur pour les signaux d'horloges, ainsi que les deux MOS. On utilise alors deux niveaux de m\'etalisation pour r\'ealiser le sh\'ema \'electrique total, ainsi que des Vias de connection, tous en respectant les r\`egles de dessins du Layout, vis-\`a-vis de l'espacement, et la longueur des liaisons.
+
+Une simulation post-layout peut-\^etre \'etablie pour comparer le fonctionnement obtenu \`a celui du sch\'ema \'electrique.
 
 \clearpage
 
@@ -717,8 +810,8 @@ On peut retrouver les \'el\'ements du switch : un Buffer et un inverseur, ainsi 
 
 Finalement, notre convertisseur fonctionne presque parfaitement : l'\'etage d'\'echantillonneur bloqueur remplit tout \`a fait son r\^ole.
 En revanche, certains \'etages de comparaison n'affichent pas toujours la bonne valeur. Th\'eoriquement, si l'\'etage de comparaison n sort
-la valeur 1 en code thermom\'etrique, les \'etages $>$ n doivent \'egalement afficher 1 et $<$ n, 0 Dans nos simulations, il arrive que des \'etages
-sup\'erieurs soient \`a 0.
+la valeur 1 en code thermom\'etrique, les \'etages $>$ n doivent \'egalement afficher 1 et $<$ n, 0.
+Dans nos simulations, il arrive que des \'etages sup\'erieurs soient \`a 0.
 
 Nous soup\c connons les inverseurs et portes NAND de mal interpr\'eter la tension en sortie d'un comparateur et de mal traduire l'information.
 Pour contrer ces probl\`emes mineurs (moins d'une comparaison fausse sur 10), il faudrait revoir la partie droite de l'\'etage de comparaison
@@ -762,7 +855,7 @@ Nous remercions les professeurs encadrants de nous avoir transmis leurs connaiss
 \item Dyanmique en sortie : $V_{S} \in [0.5; 3.5V]$ 
 \end{itemize}
 
-La figure \textbf{\textcolor{red}{X}} repr\'esente l'amplificateur OTA \`a deux \'etages pris
+La figure \ref{fig:schemaAOP-OTA} repr\'esente l'amplificateur OTA \`a deux \'etages pris
 en consid\'eration, qui \'etait \'etudi\'e en cours de conception des circuits int\'egr\'es analogique\cite{TD4-AOP}.
 On reprend ce circuit en l'adoptant \`a nos besoins, selon le cahier de charge bien d\'efini.
 
@@ -770,6 +863,7 @@ On reprend ce circuit en l'adoptant \`a nos besoins, selon le cahier de charge b
       \centering
       \includegraphics[width=0.6\linewidth]{schema_composition_AOP_2_etages.png}
       \caption{Sch\'ema th\'eorique de l'amplificateur avec les diff\'erentes fonctionnalit\'es des \'etages}
+      \label{fig:schemaAOP-OTA}
 \end{figure}%
 
 Foncionnalit\'e des \'etages :
@@ -948,19 +1042,23 @@ g_m(N_3) = \frac{2 I_2}{V_{gs} - V_{tn}} = 0.598 mA/V
 On retrouve $G_0 = G_1 \times G_2 = 400, (G_0)_{db} = 52 db > 49.5 db$, ce qui correspond bien \`a la
 au cahier des charges.
 
-\textbf{\textcolor{red}{NE CORRESPOND PAS \`a la simulation (26 db ???)}}
 
 \clearpage
 
 \addcontentsline{toc}{section}{R\'ef\'erences}
 
 \begin{thebibliography}{9}
+\bibitem{Projets-Analog}
+\textit{Projets de conception en Micro\'electronique analogique}\\
+\texttt{Laurant Aubard, Fatah Rarbi, Daniel Zahini, Florent Cilici}\\
+\texttt{Institut Polytechnique de Grenoble - Phelma}
+
 \bibitem{Razavi}
 \textit{Design of Analog CMOS Integrated Circuits}
 \\\texttt{Behzad Razavi, McGraw-Hill Higher Education.}
 
-\bibitem{Razavi Data-Conversion}
-\textit{AnalogtoDigital Converter Architectures}
+\bibitem{Razavi-Data-Conversion}
+  \textit{AnalogtoDigital Converter Architectures}
 \textit{in Principles of Data Conversion System Design}\\
 \texttt{Behzad Razavi, Wiley-IEEE Press, 1995, pp.96-152}.\\
 \textbf{doi: 10.1109/9780470545638.ch6}

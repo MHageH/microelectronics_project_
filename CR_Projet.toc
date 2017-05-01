@@ -31,4 +31,4 @@
 \contentsline {section}{\numberline {12}Fiche descriptive des caract\'eristiques}{24}{section.12}
 \contentsline {section}{\numberline {13}Annexes}{25}{section.13}
 \contentsline {subsection}{\numberline {13.1}Calcul th\'eorique complet de l'amplificateur}{25}{subsection.13.1}
-\contentsline {section}{R\'ef\'erences}{29}{figure.caption.25}
+\contentsline {section}{R\'ef\'erences}{29}{figure.caption.26}
