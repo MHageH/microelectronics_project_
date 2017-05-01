@@ -65,7 +65,7 @@
 
 \title{\textbf{Projet de Conception en Micro\'electronique Analogique} \\ R\'ealisation d'un CAN FLASH 6 bits}
 \author{Ferdinand Goumis \\ Mohamed Hage Hassan \medskip\\\medskip \textbf{Encadrants} \medskip \\ Fatah Ellah Rarbi \\ Daniel Dzahini \\ Florent Cilici \\ Laurent Aubard}
-\date{1 Mai 2017}
+\date{2 Mai 2017}
 \maketitle
 \thispagestyle{empty}
 
@@ -391,7 +391,7 @@ caract\'eristiques choisies.
 \end{center}
 \end{figure}
 
-La simulation AC montre que l'amplificateur pr\'esente un comportement assimilable \`a un filtre passe-bas, \`a une fr\'equence de coupure autour de 10 MHz, avec une marge de phase de -60 degr\'ees autour de cettre fr\'equence. L'att\'enuation maximale de (-26 dB) est atteinte \`a 180 MHz.
+La simulation AC montre que l'amplificateur pr\'esente un comportement assimilable \`a un filtre passe-bas, \`a une fr\'equence de coupure autour de 8 MHz, avec une marge de phase de -60 degr\'ees \`a 10.2 MHz. L'att\'enuation maximale de (-26 dB) est atteinte \`a 180 MHz.
 
 \clearpage
 
@@ -842,6 +842,16 @@ Nous remercions les professeurs encadrants de nous avoir transmis leurs connaiss
 
 \section{Fiche descriptive des caract\'eristiques}
 
+\textbf{Caract\'eristiques :}
+\begin{itemize} \itemsep -2pt
+\item Fr\'equence d'entr\'ee maximale compatible avec le slew-rate de l'amplificateur : 13 MHz
+\item R\'esolution : 6 bits.
+\item Dynamique en entr\'ee : $V_e \in [0.5 ; 2.5 V]$, en sortie : $V_s \in [0; 3.3V]$
+\item Fr\'equence d'\'echantillonnage : $F_h = 20 MHz$.
+\item Chemin critique r\'eduit pour la partie digitale.
+\end{itemize}
+
+
 \clearpage
 
 \section{Annexes}
@@ -1042,6 +1052,51 @@ g_m(N_3) = \frac{2 I_2}{V_{gs} - V_{tn}} = 0.598 mA/V
 On retrouve $G_0 = G_1 \times G_2 = 400, (G_0)_{db} = 52 db > 49.5 db$, ce qui correspond bien \`a la
 au cahier des charges.
 
+On cherche maintenant \`a retrouver la fr\'equence $f_0$ o\`u on a une marge de phase de $60^{\circ}$, ainsi
+qu'une capacitance de Miller $C_C$ :
+
+\textbf{Marge de phase \`a $60^{\circ}$}:
+
+La compensation Miller induit une variation de la fr\'equence du coupure de l'amplificateur. On retrouve deux p\^oles \`a fr\'equences caract\'eristiques $f^{'}_{C_1}$ et $f^{'}_{C_2}$ :
+On rappelle que :
+\[
+f^{'}_{C_2} = \frac{g_m_{N_3}}{2\pi (C_{(S)} + C_{(1)})}
+\]
+O\`u $C_{(1)}$ est la capacit\'e physique au noeud C (sans effet Miller), $C_{(S)}$ celle au noeud S:
+\[
+C_{(S)} = C_S + C_{db} (P_5) + C_{db}(N_3) + C_{gd}(P_5) + C_{gd}(N_3) = 5.25 pf
+\]
+\[
+C_{(1)} = C_{gs}(N_3) + C_{db} (N_2) + C_{db}(P_2) + C_{gd}(P_2)+G_{2} . C_{gd}(N_3) = 0.1 pf
+\]
+Ce qui nous donne :
+\[
+f^{'}_{C_2} = \frac{0.589\times10^{-3}}{2\pi (C_{(S)} + C_{(1)})} = 17.52 MHz
+\]
+Pour avoir une marge de phase \`a $60^{\circ}$ \`a la fr\'equence $f_0$, il faut que :
+\[
+-90^{\circ} - arctan\Bigg( \frac{f_0}{f^{'}_{C_{2}}}  \Bigg) = -120^{\circ} 
+\]
+Ce qui nous donne : $f_0 = tan(30^{\circ})f^{'}_{C_{2}}$, d'o\`u $f_0 = 10.2 MHz$
+
+\textbf{Calcul de la capacit\'e Miller} :\\
+On cherche \`a \'etablir un slew-rate de $82 V/\mu s$ minimum.
+Sachant qu'on applique un signal sinuso\"idal en entr\'ee d'amplitude $A = 2 V$, et $V=Asin(\omega t)$ :
+\[
+\frac{\Delta V}{\Delta t} = \frac{dv}{dt} \bigg|_{max} = \omega A = \frac{I_2}{C_s + C_C}
+\phantom{3}
+;
+\phantom{3}
+f = \frac{\omega}{2\pi} = \frac{I_2}{2\pi A (C_s + C_C)} 
+\]
+On peut remonter \`a la capacit\'e Miller, et la fr\'equence maximale $f$ compatible avec le slew-rate.
+\[
+C_C = \frac{I_2}{\frac{\Delta V}{\Delta t}} - C_s = 0.8 pF
+\phantom{3}
+;
+\phantom{3}
+f = 13.1 MHz
+\]
 
 \clearpage
 
