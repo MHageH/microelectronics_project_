@@ -109,10 +109,10 @@ Notre m\'ethode de travail tout au long du projet consiste \`a :
 \begin{itemize}
   \item[-] D\'ecoupage du CAN-FLASH en \'el\'ements fonctionnels.
   \item[-] Compr\'ehension du fonctionnement de chaque bloc.
-  \item[-] Mise en place d'un sch\'ema en \'el\'ements ideaux et v\'erfication du fonctionnement attendu par simulations.
+  \item[-] Mise en place d'un sch\'ema en \'el\'ements ideaux et v\'erification du fonctionnement attendu par simulations.
   \item[-] \'Etude th\'eorique pour le bloc r\'eel, dimensionnement des transistors et mise en validation par reproduction
   d'un sch\'ema et simulations.
-  \item[-] Mise en place d'un sch\'ema global pour sa validation en simulation (\'Echantillonneur-Bloqueur par example).
+  \item[-] Mise en place d'un sch\'ema global pour sa validation en simulation (\'Echantillonneur-Bloqueur par exemple).
 \end{itemize}
 
 
@@ -136,7 +136,7 @@ On utilise alors une topologie d'un \'echantilloneur-bloqueur \`a capacit\'e com
 \subsection{Principe de fonctionnement}
 
 On rappelle qu'on a introduit un d\'ecalage entre les 2 horloges ($\Phi_1$ et $\Phi_2$) de 5 ns, sachant que la
-fr\'equence d'\'echantillonnage est de $20 MHz$.
+fr\'equence d'\'echantillonnage est de $20 MHz$ (50 ns en p\'eriode).
 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \begin{center}
@@ -146,7 +146,7 @@ fr\'equence d'\'echantillonnage est de $20 MHz$.
 \end{wrapfigure}
 
 \medskip
-L'echantillonneur bloqueur fonctionne en 2 r\'egime diff\'erents:
+L'\'echantillonneur bloqueur fonctionne en 2 r\'egime diff\'erents:
 \begin{itemize}
   \item[-]\textbf{Phase m\'emoire} : C'est l'\'etape o\`u l'echantillonneur bloqueur
   reste sur la m\^eme valeur de tension en sortie pendant une dur\'ee T.
@@ -156,7 +156,7 @@ L'echantillonneur bloqueur fonctionne en 2 r\'egime diff\'erents:
 Gr\^ace \`a la phase m\'emoire, l'\'echantillonneur permet de garder un niveau de tension
 fixe pour la conversion qui suit.
 
-Les sch\'ema \'electriques correspondant aux phases sont repr\'esent\'es par la figure \ref{fig:figEBfonct}.
+Les sch\'emas \'electriques correspondant aux phases sont repr\'esent\'es par la figure \ref{fig:figEBfonct}.
 
 \clearpage
 
@@ -182,7 +182,7 @@ Les sch\'ema \'electriques correspondant aux phases sont repr\'esent\'es par la 
   $C_{ech}$ renvoie sa valeur de la charge en sortie.
   \item[-]\textbf{Phase suiveur} : On est \`a $\Phi_1$ et $\Phi_2$.\\
   Sachant que l'amplificateur OTA, plac\'e en suiveur, a une tr\`es grande imp\'edance d'entr\'ee, on a $V_{e^{+}} = V_{e^{-}}$.\\
-  $C_{ech}$ prend la chage correspondante \`a $V_e - 1.5 V = V_e - \frac{V_{dd}}{2}$.
+  $C_{ech}$ prend la charge correspondante \`a $V_e - 1.5 V = V_e - \frac{V_{dd}}{2}$.
  \end{itemize}
 
 Le d\'ecalage entre $\Phi_1$ et $\Phi_2$ entraine certainement le passage du transistor $M_1$ \`a l'\'etat ``Off'' avant le transitor
@@ -222,13 +222,13 @@ transitoire, avec une dur\'ee de $1 \mu s$.
 \end{figure}
 
 Cette simulation prend en charge une variation d'un param\`etre ``gain'' de l'amplificateur
-pour observer le chagement de niveau de tension en sortie du signal \'echantillonn\'e
+pour observer le changement de niveau de tension en sortie du signal \'echantillonn\'e
 en comparaison avec celui d'entr\'ee. On trouve qu'on a une meilleur approximation pour une
 valeur de gain de l'amplificateur assez \'el\'ev\'ee.
 
 \begin{figure}[!htb]
 \begin{center}
-  \includegraphics[width=0.76\linewidth]{rapport_gain_bloquage.png}
+  \includegraphics[width=0.725\linewidth]{rapport_gain_bloquage.png}
   \caption{Rapport gain-bloquage au niveau de l'\'echantilloneur-bloqueur id\'eal}
 \end{center}
 \end{figure}
@@ -240,7 +240,7 @@ valeur de gain de l'amplificateur assez \'el\'ev\'ee.
 \textbf{Vue th\'eorique et Dimensionnements}
 
 La mise en place d'un \'echantillonneur bloqueur n\'ecessite la r\'ealisation
-des switch en CMOS.
+des switchs en CMOS.
 
 Du point du vue th\'eorique, un switch est une mise en parall\`ele de 2 transistors
 de type PMOS et NMOS (TGATE).
@@ -338,7 +338,7 @@ Effectuant la simulation :
 \end{figure}
 
 On rappelle que la mise en place de tous le \'el\'ements n\'ecessite la pr\'esence d'un amplificateur
-r\'eel, fonctionnant comme suiveur. Cet \'el\'ement est expliqu\'e dans la section suivante (sect. \ref{OTA_sect}). On voit alors un comportement tr\`es similaire au celui de l'\'echantillonneur-bloqueur pr\'e-dimensionn\'e, avec un gain pr\'evu, pour une dynamique d\'entr\'ee de $V_e \in [0.5; 2.5 V] $.
+r\'eel, fonctionnant comme suiveur. Cet \'el\'ement est expliqu\'e dans la section suivante (sect. \ref{OTA_sect}). On voit alors un comportement tr\`es similaire au celui de l'\'echantillonneur-bloqueur pr\'e-dimensionn\'e, avec un gain pr\'evu, pour une dynamique d'\'entr\'ee de $V_e \in [0.5; 2.5 V] $.
 
 \clearpage
 \section{R\'ealisation d'un Amplificateur OTA \`a deux \'etages}\label{OTA_sect}
@@ -351,12 +351,12 @@ r\'eel, fonctionnant comme suiveur. Cet \'el\'ement est expliqu\'e dans la secti
   \item[-] Dynamique en entr\'ee de $V_e \in [0.5, 2.5 V]$
   \item[-] Puissance : $P = 2mW$
   \item[-] Dynamique en sortie : $V_S \in [0.5, 3.5 V]$
-    \item[-] Fr\'equence maximale d'op\'eration $~ 180 MHz$
+    \item[-] Fr\'equence maximale d'op\'eration $~ 10 MHz$ (sans att\'enuation).
 \end{itemize}
 
 \subsection{Calcul th\'eorique et dimensionnements}
 
-Le calcul th\'eorique et la prise en compte du dimensionnement nous am\`ene au sch\'ema
+Le calcul th\'eorique et la prise en compte du dimensionnement nous am\`enent au sch\'ema
 suivant :
 
 \begin{figure}[!htb]
@@ -535,7 +535,7 @@ Le dimensionnement des transistors nous am\`ene au sch\'ema de la fig. \ref{fig:
 \begin{figure}[!htb]
       \centering
       \includegraphics[width=0.8\linewidth]{comparateur_schema_cadence_.png}
-      \caption{Sch\'ema \'electrique}
+      \caption{Sch\'ema \'electrique du comparateur}
       \label{fig:schcomp}
 \end{figure}%
 
@@ -554,7 +554,7 @@ et le 1 logique varie entre 2.5 et 3.3 V. \iffalse \textbf{\textcolor{red}{Sch\'
       \label{fig:sfigBSRFF}
 \end{figure}%
 
-Nous avons donc rajout\'e des inverseurs et une Bascule SR (en 2 Nandes interconnect\'ees) en sortie afin de m\'emoriser un 0 ou un 1 logique. Ces \'el\'ements sert \`a garder un niveau stable pendant la commutation de l'horloge.
+Nous avons donc rajout\'e des buffers et une Bascule SR (en 2 Nandes interconnect\'ees) en sortie afin de m\'emoriser un 0 ou un 1 logique. Ces \'el\'ements sert \`a garder un niveau stable pendant la commutation de l'horloge.
 
 \begin{figure}[!htb]
       \centering
@@ -570,39 +570,12 @@ Nous avons donc rajout\'e des inverseurs et une Bascule SR (en 2 Nandes intercon
       \label{fig:sfigASRFF}
 \end{figure}%
 
-
-\iffalse
-\begin{figure}[!htb]
-  \begin{subfigure}{.5\textwidth}
-      \centering
-      \includegraphics[width=1.2\linewidth]{sim_comp_before_SR_FF.jpg}
-      \caption{Simulation avant l'ajout des buffers + bascules}
-      \label{fig:sfigBSRFF}
-  \end{subfigure}%
-
-  \begin{subfigure}{.5\textwidth}
-    \centering
-    \includegraphics[width=1.2\linewidth]{sim_comp_after_SR_FF.jpg}
-    \caption{Simulation apr\`es l'ins\'ertion de ces \'el\'ements}
-    \label{fig:sfigASRFF}
-  \end{subfigure}
-
-  \caption{Diff\'erence en sortie en simulation entre comparateurs sans/avec bascule SR respectivement}
-  \label{fig:figcomp}
-\end{figure}
-\fi
-
-\iffalse
-\subsubsection{Imp\'edance diff\'erentielle n\'egative et expression du Gain}
-\subsubsection{D\'etermination du courant et dimensionnements}
-\fi
-
 \clearpage
 
 \section{R\'ealisation du d\'ecodeur en Verilog}
 \subsection{Programmation et synth\`ese automatique du circuit}
 On utilise un code existant en Verilog\cite{Thermometer}.
-Ce code permet de convertir les donn\'ees en code thermometrique en sortie des
+Ce code permet de convertir les donn\'ees en code th\'ermometrique en sortie des
 comparateurs vers un code binaire sur 6 bits (avec un pouvoir de pr\'evention de bulles).
 
 \begin{lstlisting}[language=Verilog, belowskip=-0.5 \baselineskip]
@@ -718,10 +691,10 @@ autre simulation sous Cadence :
 \begin{figure}[!htb]
       \centering
       \includegraphics[width=\linewidth]{test_thermo2bin.png}
-      \caption{Placement d'un band de test pour le code Verilog apr\`es synth\`ese.}
+      \caption{Placement d'un banc de test pour le code Verilog apr\`es synth\`ese.}
 \end{figure}%
 
-Le bande de test passe les bits de 0 \`a 40 en 1 logique, puis fixe le reste \`a 0. La figure
+Le banc de test passe les bits de 0 \`a 40 en 1 logique, puis fixe le reste \`a 0. La figure
 \ref{fig:simT2B} montre les r\'esultats de la simulation :
 
 \begin{figure}[!htb]
@@ -783,7 +756,7 @@ Pour pallier ce ph\'enom\`ene, nous avons plac\'e un suiveur parfait (vcvs) dans
       \label{fig:schsimgenerale}
 \end{figure}%
 
-Dans la simulation g\'en\'erale, le bin5 repr\'esente le bit MSB en sortie du CAN-FLASH 6-bits, bin0 celui du LSB. On peut voir leur comportement incr\'emental pour un quart d'onde en entr\'ee. 
+Dans la simulation g\'en\'erale, bin5 repr\'esente le bit MSB en sortie du CAN-FLASH 6-bits, bin0 celui du LSB. On peut voir leur comportement incr\'emental pour un quart d'onde en entr\'ee. 
 
 \clearpage
 
