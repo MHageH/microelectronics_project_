@@ -11,6 +11,7 @@
 
 \usepackage{subcaption}
 \usepackage{wrapfig}
+\usepackage{multirow}
 
 % Code specific
 
@@ -301,7 +302,7 @@ D'o\`u : (Pour $V_{e}$ d'entr\'ee $ = \frac{V_{dd}}{2}$, on se place au milieu d
 \]
 
 \[
-\bigg(\frac{W}{L}\bigg)_{P} = \frac{1}{2k_p R_{ON_{(P)}}  (V_{SG} - V_{tp})} = \frac{1}{2k_p R_{ON_{(P)}}  (\frac{V_{DD}}{2} - V_{tp})} = 14.48 \implies (W)_{P} = 5 \mu m,  L_{P} = 0.35 \mu m.
+\bigg(\frac{W}{L}\bigg)_{P} = \frac{1}{2k_p R_{ON_{(P)}}  (V_{SG} - V_{tp})} = \frac{1}{2k_p R_{ON_{(P)}}  (\frac{V_{DD}}{2} - V_{tp})} = 14.28 \implies (W)_{P} = 5 \mu m,  L_{P} = 0.35 \mu m.
 \]
 
 \textbf{V\'erification des performances par simulations}
@@ -471,7 +472,7 @@ Puis, le calcul de $\frac{W}{L}$ de $N_9$ vient avec :
 Le transistor est au-dessus de la LZA :
 
 \[
-\bigg(\frac{W}{L} \bigg)_{N_9} = \frac {26µA}{55µA . (V_B - V_T)^2 ( 1+ (0.03/0.35) V_A)}
+\bigg(\frac{W}{L} \bigg)_{N_9} = \frac {26\mu A}{55\mu A . (V_B - V_T)^2 ( 1+ (0.03/0.35) V_A)}
 \]
 \[
 \bigg(\frac{W}{L} \bigg)_{N_9} = 1.46
@@ -482,7 +483,7 @@ $I_{ref} =\frac{I_0}{2}$
 
 Pour calculer celui de N7, m\^eme formule sauf que :
 \[
-  \bigg(\frac{W}{L} \bigg)_{N_7} = \frac {\frac{26}{2}µA  }{55µA . (V_B - V_T)^2 ( 1+ (0.03/0.35) V_B)}
+  \bigg(\frac{W}{L} \bigg)_{N_7} = \frac {\frac{26}{2}\mu A  }{55 \mu A . (V_B - V_T)^2 ( 1+ (0.03/0.35) V_B)}
 \]
 \[
 \bigg(\frac{W}{L} \bigg)_{N_7} = 0.72
@@ -494,7 +495,7 @@ Le calcul des dimensions du transistor $N_8$ s'effectue en consid\'erant qu'il p
 la capacit\'e estim\'ee par simulation au noeud B en $\frac{1}{4}$ de p\'eriode d'horloge.
 
 \[
-I_{N_8} = \frac {V_B C_B}{\frac{1}{4} T_H} = 2 µA
+I_{N_8} = \frac {V_B C_B}{\frac{1}{4} T_H} = 2 \mu A
 \]
 
 \iffalse
@@ -851,7 +852,67 @@ Nous remercions les professeurs encadrants de nous avoir transmis leurs connaiss
 \item Chemin critique r\'eduit pour la partie digitale.
 \end{itemize}
 
+\begin{table}[!htb]
+\centering
+\label{tab:table1}
+\begin{tabular}{|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{Dimensions}} & \multicolumn{2}{c|}{\textbf{Transistors}} \\ \cline{2-3} 
+                                     & \textbf{NMOS}       & \textbf{PMOS}       \\ \hline
+\textbf{W}                           & $2 \mu m$           & $5 \mu m$           \\ \hline
+\textbf{L}                           & $0.35 \mu m$        & $0.35 \mu m$        \\ \hline
+\textbf{$\frac{W}{L}$}               & 5.71                & 14.28               \\ \hline
+\end{tabular}
+\caption{Table des valeurs de dimensions des MOS de chaque switch}
+\end{table}
 
+\begin{table}[!htb]
+\centering
+
+\label{tab:table2}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|l|}{\multirow{2}{*}{\textbf{Dimensions}}} & \multicolumn{8}{c|}{\textbf{Transistors}}                                                                                             \\ \cline{2-9} 
+\multicolumn{1}{|l|}{}                                     & \textbf{$P_1$} & \textbf{$P_2$} & \textbf{$P_3$} & \textbf{$P_4$} & \textbf{$P_5$} & \textbf{$N_1$} & \textbf{$N_2$} & \textbf{$N_3$} \\ \hline
+\textbf{W}                                                 & $35 \mu m$     & $35 \mu m$     & $31 \mu m$     & $193.9 \mu m$  & $969 \mu m$    & $3.5 \mu m$    & $3.5 \mu m$    & $35 \mu m$     \\ \hline
+\textbf{L}                                                 & $0.7 \mu m$    & $0.7 \mu m$    & $0.7 \mu m$    & $0.7 \mu m$    & $0.7 \mu m$    & $0.35 \mu m$   & $0.35 \mu m$   & $0.35 \mu m$   \\ \hline
+\textbf{$\frac{W}{L}$}                                     & 50             & 50             & 44.28          & 277            & 1358           & 10             & 10             & 100            \\ \hline
+\end{tabular}
+\caption{Table qui repr\'esente les diff\'erentes valeurs de W et L pour les transistors de l'amplificateur}
+\end{table}
+
+\begin{table}[!htb]
+\centering
+\label{tab:table3}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{Dimensions}} & \multicolumn{9}{c|}{\textbf{Transistors}}                                                                                                              \\ \cline{2-10} 
+                                     & \textbf{$N_1$} & \textbf{$N_2$} & \textbf{$N_3$} & \textbf{$N_4$} & \textbf{$N_5$} & \textbf{$N_6$} & \textbf{$N_7$} & \textbf{$N_8$} & \textbf{$N_9$} \\ \hline
+\textbf{W}                           & $ 50 \mu m$    & $50 \mu m$     & $0.5 \mu m$    & $0.7 \mu m$    & $0.7 \mu m$    & $0.4 \mu m$    & $0.4 \mu m$    & $0.4 \mu m$    & $0.5 \mu m$    \\ \hline
+\textbf{L}                           & $ 0.35 \mu m$  & $0.35 \mu m$   & $1 \mu m$      & $1 \mu m$      & $1 \mu m$      & $2.1 \mu m$    & $0.35 \mu m$   & $0.35 \mu m$   & $0.35 \mu m$   \\ \hline
+\textbf{$\frac{W}{L}$}               & 142.85         & 142.85         & 0.5            & 0.7            & 0.7            & 0.19           & 1.14           & 1.14           & 1.42           \\ \hline
+\end{tabular}
+\caption{Valeurs W et L pour les comparateurs}
+\end{table}
+
+\begin{table}[!htb]
+\centering
+\label{tab:table4}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{Dimensions}} & \multicolumn{3}{c|}{\textbf{Transistors}}           \\ \cline{2-4} 
+                                     & \textbf{$N_{10}$} & \textbf{$P_1$} & \textbf{$P_2$} \\ \hline
+\textbf{W}                           & $ 5 \mu m$        & $0.86 \mu m$   & $0.86 \mu m$   \\ \hline
+\textbf{L}                           & $ 0.35 \mu m$     & $0.7 \mu m$    & $0.7 \mu m$    \\ \hline
+\textbf{$\frac{W}{L}$}               & 14.28             & 1.22           & 1.22           \\ \hline
+\end{tabular}
+\caption{Valeurs W et L pour les comparateurs}
+\end{table}
+
+Pour le pont des r\'esistances, tout les r\'esistances sont \'egaux \`a $R = 10 k\Omega$, sauf R du LSB :
+\[
+R_{LSB} = 100 k \Omega
+\]
 \clearpage
 
 \section{Annexes}
@@ -862,7 +923,7 @@ Nous remercions les professeurs encadrants de nous avoir transmis leurs connaiss
 \item $V_{EMC} \in [0.5; 2.5V]$ en entr\'ee.
 \item gain en basse fr\'equence $G(0) \in [300;400]$
 \item $C_{S} = 6 pf$
-\item Dyanmique en sortie : $V_{S} \in [0.5; 3.5V]$ 
+\item Dynamique en sortie : $V_{S} \in [0.5; 3.5V]$ 
 \end{itemize}
 
 La figure \ref{fig:schemaAOP-OTA} repr\'esente l'amplificateur OTA \`a deux \'etages pris
@@ -1007,7 +1068,7 @@ Par rapport \`a $N_3$ et $N_2$ (sachant que $V_B = V_C$) :
 
 Pour $P_5$, la condition sur le mirroir de courant ne ram\`ene \`a :
 \[
-\bigg( \frac{W}{L} \bigg)_{P_{5}} = \frac{I_2}{2 I_1} \bigg( \frac{W}{L} \bigg)_{P_{4}} = 220
+\bigg( \frac{W}{L} \bigg)_{P_{5}} = \frac{I_2}{2 I_1} \bigg( \frac{W}{L} \bigg)_{P_{4}} = 1358
 \]
 
 Si on fixe $L_N = 0.35 \mu m$ et $L_P = 0.7 \mu m$ pour les PMOS respectivement, on peut calculer les

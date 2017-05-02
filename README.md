@@ -15,7 +15,7 @@ at the Grenoble Institute of Technology (Phelma).
 - [X] Theoretical explanations for different parts
 - [X] Introduction, Conclusion, (Annexes, Glossaire).
 - [X] Screenshots of the different elements.
-- [ ] Add the different characteristics for the MOS transistors.
+- [X] Add the different characteristics for the MOS transistors.
 
 # TODO (Required-French)
 - [X] Description du cahier des charges du projet,
@@ -24,7 +24,4 @@ at the Grenoble Institute of Technology (Phelma).
 - [X] Validation globale, performances obtenues,
 - [X] Présentation du Layout d'un bloc du projet avec simulation post-layout.
 - [X] Conclusion, améliorations, avis critiques sur le déroulement du projet.
-- [ ] Une fiche descriptive résument les caractéristiques et performances du circuit (type datasheet sur une page).
-
-## Notes
-Everything in red means it still needs to be modified.
+- [X] Une fiche descriptive résument les caractéristiques et performances du circuit (type datasheet sur une page).
